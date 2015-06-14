@@ -2,22 +2,38 @@ var router = require('./app.route'),
 	Eryri = require('./eryri/eryri'),
 	_ = Eryri._,
 	superagent = require('superagent'),
-	blogSummary = require('./components/blog.summary')
+	blogPost = require('./components/blog.post'),
+	blogSummary = require('./components/blog.summary'),
+	h = require('virtual-dom/h')
 
 Eryri.applyToDom(function () {
 	router().each(function (hash) {
-		console.log(hash)
-		getPosts()
+		if (hash) {
+			console.log(hash)
+			getPost(hash)
+		} else {
+			getPosts()
+		}
 	})
 })
 
-function getPosts() {
+function getPost(hash) {
 	superagent
-		.get('/posts/posts.json')
+		.get('/posts/' + hash + '.md')
 		.end(function (err, res) {
 			console.log(res)
-			_(res.posts)
-				.doto(console.log)
+			_(JSON.parse(res.text))
+				.map(blogPost)
+				.each(Eryri.updateDom)
+		})
+}
+
+function getPosts() {
+	superagent
+		.get('./posts/posts.json')
+		.end(function (err, res) {
+			console.log(res)
+			_(JSON.parse(res.text).posts)
 				.through(renderAllPosts)
 				.each(Eryri.updateDom)
 		})

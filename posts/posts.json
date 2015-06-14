@@ -1,5 +1,9 @@
 {
   "posts": [
-    "testPost.md"
+    {
+      "url": "testPost",
+      "title": "Test Post",
+      "stub": "This is a test post stub"
+    }
   ]
 }

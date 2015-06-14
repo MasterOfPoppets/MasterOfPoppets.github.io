@@ -13460,7 +13460,18 @@ module.exports = function router() {
 		return hash.replace('#', '')
 	})
 }
-},{"./eryri/eryri":77,"dom-event-stream":25}],76:[function(require,module,exports){
+},{"./eryri/eryri":78,"dom-event-stream":25}],76:[function(require,module,exports){
+var h = require('virtual-dom/h'),
+	marked = require('marked')
+
+module.exports = function render(post) {
+	return h('article.blog-entry', [
+		h('h1.blog-entry-title', post.title),
+		h('span.blog-entry-date', post.date),
+		h('div.markdown', { innerHTML: marked(post.post) })
+	])
+}
+},{"marked":38,"virtual-dom/h":44}],77:[function(require,module,exports){
 var h = require('virtual-dom/h'),
 	marked = require('marked')
 
@@ -13472,7 +13483,7 @@ module.exports = function render(post) {
 		h('div.markdown', { innerHTML: marked(post.stub) })
 	])
 }
-},{"marked":38,"virtual-dom/h":44}],77:[function(require,module,exports){
+},{"marked":38,"virtual-dom/h":44}],78:[function(require,module,exports){
 var _ = require('highland'),
 	h = require('virtual-dom/h'),
 	createElement = require('virtual-dom/create-element'),
@@ -13499,27 +13510,43 @@ module.exports = {
 		tree = newTree
 	}
 }
-},{"highland":37,"virtual-dom/create-element":42,"virtual-dom/diff":43,"virtual-dom/h":44,"virtual-dom/patch":52}],78:[function(require,module,exports){
+},{"highland":37,"virtual-dom/create-element":42,"virtual-dom/diff":43,"virtual-dom/h":44,"virtual-dom/patch":52}],79:[function(require,module,exports){
 var router = require('./app.route'),
 	Eryri = require('./eryri/eryri'),
 	_ = Eryri._,
 	superagent = require('superagent'),
-	blogSummary = require('./components/blog.summary')
+	blogPost = require('./components/blog.post'),
+	blogSummary = require('./components/blog.summary'),
+	h = require('virtual-dom/h')
 
 Eryri.applyToDom(function () {
 	router().each(function (hash) {
-		console.log(hash)
-		getPosts()
+		if (hash) {
+			console.log(hash)
+			getPost(hash)
+		} else {
+			getPosts()
+		}
 	})
 })
 
-function getPosts() {
+function getPost(hash) {
 	superagent
-		.get('/posts/posts.json')
+		.get('/posts/' + hash + '.md')
 		.end(function (err, res) {
 			console.log(res)
-			_(res.posts)
-				.doto(console.log)
+			_(JSON.parse(res.text))
+				.map(blogPost)
+				.each(Eryri.updateDom)
+		})
+}
+
+function getPosts() {
+	superagent
+		.get('./posts/posts.json')
+		.end(function (err, res) {
+			console.log(res)
+			_(JSON.parse(res.text).posts)
 				.through(renderAllPosts)
 				.each(Eryri.updateDom)
 		})
@@ -13533,4 +13560,4 @@ function renderAllPosts(stream) {
 			return h('div', allPosts)
 		})
 }
-},{"./app.route":75,"./components/blog.summary":76,"./eryri/eryri":77,"superagent":39}]},{},[78]);
+},{"./app.route":75,"./components/blog.post":76,"./components/blog.summary":77,"./eryri/eryri":78,"superagent":39,"virtual-dom/h":44}]},{},[79]);
