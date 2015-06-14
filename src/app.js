@@ -9,7 +9,6 @@ var router = require('./app.route'),
 Eryri.applyToDom(function () {
 	router().each(function (hash) {
 		if (hash) {
-			console.log(hash)
 			getPost(hash)
 		} else {
 			getPosts()
@@ -19,9 +18,8 @@ Eryri.applyToDom(function () {
 
 function getPost(hash) {
 	superagent
-		.get('/posts/' + hash + '.md')
+		.get('./posts/' + hash + '.md')
 		.end(function (err, res) {
-			console.log(res)
 			_([res.text])
 				.map(blogPost)
 				.each(Eryri.updateDom)
@@ -32,7 +30,6 @@ function getPosts() {
 	superagent
 		.get('./posts/posts.json')
 		.end(function (err, res) {
-			console.log(res)
 			_(JSON.parse(res.text).posts)
 				.through(renderAllPosts)
 				.each(Eryri.updateDom)

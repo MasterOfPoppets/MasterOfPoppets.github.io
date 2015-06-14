@@ -13466,9 +13466,9 @@ var h = require('virtual-dom/h'),
 
 module.exports = function render(post) {
 	return h('article.blog-entry', [
-		h('h1.blog-entry-title', post.title),
-		h('span.blog-entry-date', post.date),
-		h('div.markdown', { innerHTML: marked(post.post) })
+		//h('h1.blog-entry-title', post.title),
+		//h('span.blog-entry-date', post.date),
+		h('div.markdown', { innerHTML: marked(post) })
 	])
 }
 },{"marked":38,"virtual-dom/h":44}],77:[function(require,module,exports){
@@ -13522,7 +13522,6 @@ var router = require('./app.route'),
 Eryri.applyToDom(function () {
 	router().each(function (hash) {
 		if (hash) {
-			console.log(hash)
 			getPost(hash)
 		} else {
 			getPosts()
@@ -13532,10 +13531,9 @@ Eryri.applyToDom(function () {
 
 function getPost(hash) {
 	superagent
-		.get('/posts/' + hash + '.md')
+		.get('./posts/' + hash + '.md')
 		.end(function (err, res) {
-			console.log(res)
-			_(JSON.parse(res.text))
+			_([res.text])
 				.map(blogPost)
 				.each(Eryri.updateDom)
 		})
@@ -13545,7 +13543,6 @@ function getPosts() {
 	superagent
 		.get('./posts/posts.json')
 		.end(function (err, res) {
-			console.log(res)
 			_(JSON.parse(res.text).posts)
 				.through(renderAllPosts)
 				.each(Eryri.updateDom)
