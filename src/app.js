@@ -22,7 +22,7 @@ function getPost(hash) {
 		.get('/posts/' + hash + '.md')
 		.end(function (err, res) {
 			console.log(res)
-			_(JSON.parse(res.text))
+			_([res.text])
 				.map(blogPost)
 				.each(Eryri.updateDom)
 		})
