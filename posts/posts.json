@@ -1,8 +1,33 @@
 {
   "posts": [
     {
-      "url": "testPost",
-      "title": "Test Post",
+      "url": "a-brief-update",
+      "title": "A Brief Update",
+      "stub": "This is a test post stub"
+    },
+    {
+      "url": "angular-blogging",
+      "title": "Blogging with Angular",
+      "stub": "This is a test post stub"
+    },
+    {
+      "url": "reloading-ui-router-controllers",
+      "title": "Reloading controllers with UI Router",
+      "stub": "This is a test post stub"
+    },
+    {
+      "url": "famous-web-developers",
+      "title": "Famo.us and Thames Valley Web Developers",
+      "stub": "This is a test post stub"
+    },
+    {
+      "url": "marking-blogging-with-node",
+      "title": "Markdown blogging with Node.js and Firebase",
+      "stub": "This is a test post stub"
+    },
+    {
+      "url": "welcome",
+      "title": "Site Launch!",
       "stub": "This is a test post stub"
     }
   ]
