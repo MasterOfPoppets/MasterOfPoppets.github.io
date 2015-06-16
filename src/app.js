@@ -18,7 +18,7 @@ Eryri.applyToDom(function () {
 })
 
 function getPost(hash) {
-	_(request.get('./posts/' + hash + '.md'))
+	_(request.get('http://masterofpoppets.github.io/posts/' + hash + '.md'))
 		.map(function (res) {
 			return res.text
 		})
