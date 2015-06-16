@@ -1,6 +1,11 @@
 {
   "posts": [
     {
+      "url": "streams-and-user-interaction",
+      "title": "Streams, User Interaction and Reactive Programming",
+      "stub": "This is a test post stub"
+    },
+    {
       "url": "a-brief-update",
       "title": "A Brief Update",
       "stub": "This is a test post stub"
