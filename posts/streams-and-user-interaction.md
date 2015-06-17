@@ -22,8 +22,10 @@ The [Gulp documentation](https://github.com/gulpjs/gulp/blob/master/docs/getting
 
 The most eye-opening one of these is a fantastic [Introduction to Node Streams](https://github.com/substack/stream-handbook) - I urge you to go and read it. All. Now.
 
-## Node.JS Streams
+## Streamy thing goes in, streamy thing comes out
 
->"We should have some ways of connecting programs like garden hose--screw in
->another segment when it becomes necessary to massage data in
->another way. This is the way of IO also." - Doug McIlroy
+One of the basic idea behind a stream, and this is another thing that attracted me to Gulp, is the idea that a stream should do one thing and do it well. Whereas a typical Grunt plugin with come with a barrage of options, a Gulp plugin, [if you need one at all](http://blog.overzealous.com/post/74121048393/why-you-shouldnt-create-a-gulp-plugin-or-how-to), shouldn't have any need for configuration options. Just take a look at the [Grunt](https://github.com/gruntjs/grunt-contrib-less) and [Gulp](https://github.com/plus3network/gulp-less) versions of something simple like a Less processor.
+
+By using streams we can create building blocks that we can connect - or pipe - together to create powerful combinations. The above Less plugin doesn't need an option to minify, because that is not it's job. It's job is to compile Less. If you then want to minify the result, pipe it to a [minifier!](https://github.com/murphydanger/gulp-minify-css) 
+
+
