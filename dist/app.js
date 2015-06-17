@@ -60309,7 +60309,8 @@ module.exports={
     }
   ],
   "directories": {},
-  "_resolved": "https://registry.npmjs.org/tough-cookie/-/tough-cookie-2.0.0.tgz"
+  "_resolved": "https://registry.npmjs.org/tough-cookie/-/tough-cookie-2.0.0.tgz",
+  "readme": "ERROR: No README data found!"
 }
 
 },{}],298:[function(require,module,exports){
@@ -64984,8 +64985,8 @@ module.exports = {
 var router = require('./app.route'),
 	Eryri = require('./eryri/eryri'),
 	_ = Eryri._,
-	request = require('request'),
 	superagent = require('superagent'),
+	request = require('request'),
 	blogPost = require('./components/blog.post'),
 	blogSummary = require('./components/blog.summary'),
 	h = require('virtual-dom/h')
@@ -65001,14 +65002,14 @@ Eryri.applyToDom(function () {
 })
 
 function getPost(hash) {
-	_(request.get('http://masterofpoppets.github.io/posts/' + hash + '.md'))
-		.map(function (res) {
-			return res.text
+	_(request('http://masterofpoppets.github.io/posts/'  + hash + '.md'))
+		.map(function (response) {
+			return response.text
 		})
 		.map(blogPost)
 		.each(Eryri.updateDom)
 
-	//request
+	//superagent
 	//	.get('./posts/' + hash + '.md')
 	//	.end(function (err, res) {
 	//		_([res.text])
