@@ -2,7 +2,7 @@ var router = require('./app.route'),
 	Eryri = require('./eryri/eryri'),
 	_ = Eryri._,
 	superagent = require('superagent'),
-	hyperquest = require('hyperquest'),
+	http = require('http'),
 	blogPost = require('./components/blog.post'),
 	blogSummary = require('./components/blog.summary'),
 	h = require('virtual-dom/h')
@@ -26,7 +26,7 @@ function getPost(hash) {
 	//	.map(blogPost)
 
 
-	_(hyperquest('/posts/' + hash + '.md'))
+	_(http.get({ path: '/posts/' + hash + '.md' }))
 		.map(function (res) {
 			console.log(res)
 			return res.text
