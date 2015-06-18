@@ -26,9 +26,12 @@ function getPost(hash) {
 		.map(blogPost)
 
 
-	hyperquest('/posts/' + hash + '.md')
-		.pipe(stream)
-		.each(Eryri.updateDom)
+	_(hyperquest('/posts/' + hash + '.md'))
+		.each(function (res) {
+			console.log(res)
+		})
+		//.pipe(stream)
+		//.each(Eryri.updateDom)
 	//superagent
 	//	.get('./posts/' + hash + '.md')
 	//	.pipe(stream)
