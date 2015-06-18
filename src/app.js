@@ -18,18 +18,21 @@ Eryri.applyToDom(function () {
 })
 
 function getPost(hash) {
-	var stream = _()
+	//var stream = _()
+	//	.map(function (res) {
+	//		console.log(res)
+	//		return res.text
+	//	})
+	//	.map(blogPost)
+
+
+	_(hyperquest('/posts/' + hash + '.md'))
 		.map(function (res) {
 			console.log(res)
 			return res.text
 		})
 		.map(blogPost)
-
-
-	_(hyperquest('/posts/' + hash + '.md'))
-		.each(function (res) {
-			console.log(res)
-		})
+		.each(Eryri.updateDom)
 		//.pipe(stream)
 		//.each(Eryri.updateDom)
 	//superagent
