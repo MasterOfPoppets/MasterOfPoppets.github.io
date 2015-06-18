@@ -2,6 +2,7 @@ var router = require('./app.route'),
 	Eryri = require('./eryri/eryri'),
 	_ = Eryri._,
 	superagent = require('superagent'),
+	hyperquest = require('hyperquest'),
 	blogPost = require('./components/blog.post'),
 	blogSummary = require('./components/blog.summary'),
 	h = require('virtual-dom/h')
@@ -17,13 +18,24 @@ Eryri.applyToDom(function () {
 })
 
 function getPost(hash) {
-	superagent
-		.get('./posts/' + hash + '.md')
-		.end(function (err, res) {
-			_([res.text])
-				.map(blogPost)
-				.each(Eryri.updateDom)
+	var stream = _()
+		.map(function () {
+			return res.text
 		})
+		.map(blogPost)
+		.each(Eryri.updateDom)
+
+
+	hyperquest('/posts/' + hash + '.md')
+		.pipe(stream)
+	//superagent
+	//	.get('./posts/' + hash + '.md')
+	//	.pipe(stream)
+		//.end(function (err, res) {
+		//	_([res.text])
+		//		.map(blogPost)
+		//		.each(Eryri.updateDom)
+		//})
 }
 
 function getPosts() {
