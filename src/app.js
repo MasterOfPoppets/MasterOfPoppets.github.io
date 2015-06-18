@@ -19,15 +19,16 @@ Eryri.applyToDom(function () {
 
 function getPost(hash) {
 	var stream = _()
-		.map(function () {
+		.map(function (res) {
+			console.log(res)
 			return res.text
 		})
 		.map(blogPost)
-		.each(Eryri.updateDom)
 
 
 	hyperquest('/posts/' + hash + '.md')
 		.pipe(stream)
+		.each(Eryri.updateDom)
 	//superagent
 	//	.get('./posts/' + hash + '.md')
 	//	.pipe(stream)
