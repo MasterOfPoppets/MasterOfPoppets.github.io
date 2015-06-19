@@ -28,7 +28,6 @@
     "gulp-uglify": "^1.2.0",
     "gulp-util": "^3.0.5",
     "highland": "^2.5.1",
-    "hyperquest": "^1.2.0",
     "lodash.assign": "^3.2.0",
     "marked": "^0.3.3",
     "superagent": "^1.2.0",

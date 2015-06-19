@@ -25,7 +25,7 @@ function getPost(hash) {
 		.map(blogPost)
 		.each(Eryri.updateDom)
 
-	http.get({ path: './posts/' + hash + '.md'}, function (res) {
+	http.get({ path: 'http://masterofpoppets.github.io/posts/' + hash + '.md'}, function (res) {
 		res.pipe(stream)
 	})
 
