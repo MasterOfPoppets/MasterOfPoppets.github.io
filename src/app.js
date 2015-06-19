@@ -19,7 +19,6 @@ Eryri.applyToDom(function () {
 function getPost(hash) {
 	superagent
 		.get('./posts/' + hash + '.md')
-		.pipe(stream)
 		.end(function (err, res) {
 			_([res.text])
 				.map(blogPost)
