@@ -25,7 +25,7 @@ function bundle() {
 		.pipe(source('app.js'))
 		.pipe(buffer())
 		.pipe(sourcemaps.init({ loadMaps: true }))
-		//.pipe(uglify())
+		.pipe(uglify())
 		.on('error', gutil.log.bind(gutil, 'Uglify Error'))
 		.pipe(sourcemaps.write('./'))
 		.pipe(gulp.dest('./dist/'))

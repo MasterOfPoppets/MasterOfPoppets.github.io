@@ -2,7 +2,6 @@ var router = require('./app.route'),
 	Eryri = require('./eryri/eryri'),
 	_ = Eryri._,
 	superagent = require('superagent'),
-	http = require('http'),
 	blogPost = require('./components/blog.post'),
 	blogSummary = require('./components/blog.summary'),
 	h = require('virtual-dom/h')
@@ -18,25 +17,14 @@ Eryri.applyToDom(function () {
 })
 
 function getPost(hash) {
-	var stream = _()
-		.map(function () {
-			return res.text
+	superagent
+		.get('./posts/' + hash + '.md')
+		.pipe(stream)
+		.end(function (err, res) {
+			_([res.text])
+				.map(blogPost)
+				.each(Eryri.updateDom)
 		})
-		.map(blogPost)
-		.each(Eryri.updateDom)
-
-	http.get({ path: 'http://masterofpoppets.github.io/posts/' + hash + '.md'}, function (res) {
-		res.pipe(stream)
-	})
-
-	//superagent
-	//	.get('./posts/' + hash + '.md')
-	//	.pipe(stream)
-		//.end(function (err, res) {
-		//	_([res.text])
-		//		.map(blogPost)
-		//		.each(Eryri.updateDom)
-		//})
 }
 
 function getPosts() {
