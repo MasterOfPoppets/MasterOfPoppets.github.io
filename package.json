@@ -2,7 +2,7 @@
   "name": "MasterOfPoppets.github.io",
   "version": "0.0.1",
   "description": "Quantum site hosted on Github Pages",
-  "main": "src/app.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,29 +11,12 @@
     "url": "https://github.com/MasterOfPoppets/MasterOfPoppets.github.io.git"
   },
   "keywords": [
-    "Quantum",
-    "GithugPages"
+    "Quantum"
   ],
   "author": "Gareth Hughes",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/MasterOfPoppets/MasterOfPoppets.github.io/issues"
   },
-  "homepage": "https://github.com/MasterOfPoppets/MasterOfPoppets.github.io",
-  "devDependencies": {
-    "browserify": "^10.2.4",
-    "dom-event-stream": "0.0.1",
-    "gulp": "^3.9.0",
-    "gulp-sourcemaps": "^1.5.2",
-    "gulp-uglify": "^1.2.0",
-    "gulp-util": "^3.0.5",
-    "highland": "^2.5.1",
-    "lodash.assign": "^3.2.0",
-    "marked": "^0.3.3",
-    "superagent": "^1.2.0",
-    "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0",
-    "virtual-dom": "^2.0.1",
-    "watchify": "^3.2.2"
-  }
+  "homepage": "https://github.com/MasterOfPoppets/MasterOfPoppets.github.io"
 }
