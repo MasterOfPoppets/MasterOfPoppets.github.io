@@ -6,9 +6,138 @@
 </head>
 <body>
 <div class="main-wrapper">
-    <h3 id="welcome-to-my-homepage">Welcome to my homepage</h3>
-
+    <ul>
+            <li>
+                <h3>A Brief Update</h3>
+                <article><p>It has now been four months since my last post on here, but there has been an awful lot happening in that time!</p>
+<p>I feel that now is probably a good time to give a short update on what&#39;s been happening and new things that I have on the horizon.</p>
+<h3 id="new-job-">New job!</h3>
+<p>Around Christmas I started in earnest applying for jobs using the new skills, such as AngularJS and Node.js, that I&#39;d learnt over the previous months.</p>
+<p>After initially casting my new far too wide, I honed in on what I wanted from a new job - namely to work for a small and forward thinking company, either in a permanent or, preferably, contract capacity using these technologies.</p>
+<p>After interviewing for a couple of small web development agencies I eventually wound up interviewing for <a href="http://www.thepwgroup.co.uk/">PWG</a> - probably not the kind of company you&#39;d initially associate with new tech. However, they were looking for someone with AngularJS and general front-end experience and were prepared to take a chance on me!</p>
+<p>So far I&#39;ve been there around three months and I&#39;ve learnt a lot as I&#39;m working with another, more experienced, front-end developer. More on this soon!</p>
+<h3 id="i-m-a-director-">I&#39;m a Director!</h3>
+<p>With the job at PWG being a contract position, I ended up forming my own limited company after speaking to some friends about the best way to go about contracting!</p>
+<p>Whilst I was looking for work, given the lack of commercial AngularJS experience I had, I was told most likely I would end up with a permanent role - so the contract came as somewhat of a surprise!</p>
+<p>One of the worst aspects about setting up a new company is coming up with a kick ass name for it! Having decided that Gareth Hughes Ltd, or variations on that, was pretty lame, Jen actually came up with the name of the company that I&#39;m now the director of - Quantum Web Development Ltd.</p>
+<p>Kick. Ass.</p>
+<p>The one problem now though, is that I have a website (you&#39;re currently reading it) but it&#39;s not really a company website. Over the next few months, I&#39;m hoping to update the site (and the domain name) to better reflect Quantum Web Development.</p>
+<p>I&#39;m thinking green.</p>
+<p>I also want a kick ass logo - something that I may decide to speak to one of Jen&#39;s former colleagues about. Mates rates and all that.</p>
+<h3 id="fireblogger">Fireblogger</h3>
+<p>On top of all that, I&#39;ve finally been able to roll out the first iteration of my more interactive Fireblogger app, allowing me to write this post and submit it to Firebase entirely through my site, as opposed to the archaic text editing that I was previously using.</p>
+<p>I must stress though, at the moment it is only the first iteration and there is a lot more to add, including</p>
+<ul>
+<li>Security. Of any kind.</li>
+<li>Editing old posts.</li>
+<li>Comments.</li>
+</ul>
+<p>But for now though, I&#39;m pleased to have a lot easier method to get these posts up and hopefully this should encourage me to write more frequently again - I&#39;ve certainly got a lot that I want to document!</p>
+</article>
+            </li>
+            <li>
+                <h3>Blogging with Angular</h3>
+                <article><p>As I mentioned a little while ago in <a href="http://garethhughes.io/blog/markdown-blogging-with-node">this</a> post, my intention was to move to an entirely client-side blogging engine. This would taking my existing solution which used Node to serve Jade templates containing a blog entry retrieved from Firebase, and moving the Firebase retrieval to the client-side.</p>
+<p>The plan was to still serve a small Jade template from Node, but instead of containing the actual blog entry, it would just contain a handful of Angular directives and data-bindings that I would create with a new module.</p>
+<h3 id="the-fireblogger-module">The Fireblogger module</h3>
+<p>Creating a new module in Angular is great in order to encapsulate a small amount of functionality for a particular purpose. In this case, I wanted my module to do a handful of jobs:</p>
+<ul>
+<li>Load all of the posts</li>
+<li>Load a specific post for a given URL</li>
+<li>Provide a markdown directive to display markdown</li>
+</ul>
+<p>Since I would be using a centralised model to hold on to this data, I needed to get my head around the way that Angular&#39;s data-binding works with regards to being updated. Whilst something as simple as</p>
+<pre><code>var post = null
+</code></pre><p>will allow you to assign a value to it, displaying it in the browser with an Angular data-binding such as</p>
+<pre><code>{{ post }}
+</code></pre><p>it is not particularly good at keeping the value updated if you changed it via code - something that will happen if a use wishes to view a different blog post. There are many solutions around to solve this problem, inlcuding setting up a \$watch, and forcing an update with \$apply, but reading into this seems to indicate that this is not the correct &quot;Angular&quot; way of doing things, and can break the digest cycle.</p>
+<p>Instead, we can store the information in a <code>model</code> object. This leads to something looking a little like this</p>
+<pre><code>var model = {
+  post = null
+}
+</code></pre><p>and a data-binding such as</p>
+<pre><code>{{ model.post }}
+</code></pre><p>Now the factory can update the model and Angular will ensure that the data-bindings reflect this. On the surface, this is a simple change, and it definitely fits more nicely with the  MVC approach, but due to a lack of good examples online and other misleading suggestions, it took a while to figure out this was the correct way of doing things!</p>
+<h3 id="improvements">Improvements</h3>
+<p>Whilst the new Fireblogger module I&#39;ve created currently serves its purpose, there are definitely some further improvements that I would like to make to it.</p>
+<p>Firstly, loading all of the posts up front is not a great idea! For a start, when loading all the posts, I don&#39;t need the actual post content, as this isn&#39;t displayed, so I need to investigate if it is possible in Firebase to retrieve a subset of fields for a particular record.</p>
+<p>Secondly, the markdown directive I have created for this purpose is quite specific and is tied to a model property. I would ideally like to make this more generic, and probably extract it out into its own (very small!) module entirely.</p>
+<p>I would also like to extract the module entirely, and create my own <a href="http://bower.io/">Bower</a> component, as my plan is to use the same functionality that the module provides as part of the improvements I have in mind for my blog-post-author project.</p>
+</article>
+            </li>
+            <li>
+                <h3>Reloading Controllers with UI Router</h3>
+                <article><p>When I began developing this site, I made the decision to use <a href="https://github.com/angular-ui/ui-router">UI Router</a> for the client side routing, as opposed to ngRoute which is built-in to Angular.</p>
+<p>I made this decision because, despite the fact it is newer and therefore has issues, the benefits outweigh this. For example, I new that I wanted to create nested views as part of my portfolio page, and ngRoute just doesn&#39;t accomodate this.</p>
+<p>I also really prefer the idea of a &#39;state&#39; within my app - this feels like it fits in a lot better with the MVC architecture, and I can map different states, often within the same page, to different controllers.</p>
+<p>Unfortunately, whilst developing my contact page, I came across one of the issues with UI Router, namely that it isn&#39;t possible to reload a controller. This was a problem for me because I wanted the animations that I had built into the page to run every time a user transitions from submitting the form to the success page. There are various workarounds on the UI Router github page for this issue, but these didn&#39;t appear to work for me, possibly because of the nested nature of the states in my app.</p>
+<p>In the end, I decided to take a look at the events that UI Router fires, and try to figure out how I could use them to my advantage. UI Router fires several events, including one that indicates a successful transition to a new state. Great! This is just what I need.</p>
+<pre><code>$scope.$on(&#39;$stateChangeSuccess&#39;, function () {
+  if ($state.is(&#39;contact.success&#39;)) {
+    $scope.entryOpacity = $famousAnimations.animateIn();
+  }
+});
+</code></pre><p>When I first create my controller for handling the transition to the success page, I am registering a listener to the <code>$stateChangeSuccess</code> event. From that point, every time I receive an event of that type, I check that the current state is <code>contact.success</code> and if it is, execute my animation code. I have to check the current state, since every successful transition will fire this event, regardless which state it ends up in.</p>
+<p>I am fully expecting to encounter similar issues to this later on, when I introduce other animations to the app, and I am hoping that this approach to solving them is a good generic one.</p>
+<p>In other news, I have now also joined the Oxford Google Developer Group - another Meetup akin to Thames Valley Web Developers. There appears to be a considerable amount of overlap between the two at the moment, since they are both organised by the same person. However, with the first meeting this evening, I am hoping to get a bit more clarification about the aims of both groups, and if necessary, focus my attention on one of the groups.</p>
+</article>
+            </li>
+            <li>
+                <h3>Famo.us and Thames Valley Web Developers</h3>
+                <article><p>Several months ago I went along to my first meetup - the rather fantastic <a href="http://www.meetup.com/Thames-Valley-Web-Developers/">Thames Valley Web Developers</a>. My first meetup was a brief introduction to AngularJS and a more in depth talk about how to test Angular apps from one of their own - <a href="https://github.com/petebacondarwin">Pete Bacon Darwin</a>. This was great because at the time I had only been looking at Angular for a few months myself and the talk just helped everything to &#39;click&#39; in my mind - a real lightbulb moment!</p>
+<p>Fast forward to this week and the upcoming schedule for the first few months of next year and the talks being given. There is an interesting looking talk from the people at <a href="https://www.backand.com/">Back&amp;</a> but what is really exciting is a talk from the guys at <a href="http://famo.us/">Famo.us</a>!</p>
+<p>Famo.us is an open source Javascript framework for creating smooth and complex UIs across any type of screen. Better still, they are also working closely with the guys at Angular, making fantastic use of directives in order to intuitively create the Famo.us modifiers and surfaces within HTML and leaving the Javascript, within Angular, to take care of the computational stuff, like animation!</p>
+<p>I&#39;ve spent all week playing with it and I hope to be able to incorporate it onto this site in the near future, once I have a few other things sorted out!</p>
+<p>In the mean time, if you are in the Reading or Oxford areas and would like to hear more about Famo.us, then come along to the meetup on 2nd Febuary! <a href="http://www.meetup.com/Thames-Valley-Web-Developers/events/218981950/">More details here...</a></p>
+</article>
+            </li>
+            <li>
+                <h3>Markdown Blogging with Node.JS and Firebase</h3>
+                <article><p>For the majority of this week I have been focusing on adding a rudimentary blogging engine to my site, allowing me to post updates such as this.</p>
+<p>There are many different options out there for blogging, from small but powerful Node.js modules such as <a href="https://github.com/creationix/wheat">Wheat</a> to plugin heavy behemoths like Wordpress. However, since developing this site has partly been a learning exercise, I thought I would have a go at developing my own blogging engine - one that would allow me to customise to my own requirements as I went along.</p>
+<p>So where to start?</p>
+<h3 id="phase-1-a-content-directory">Phase 1: A content directory</h3>
+<p>First of all, I thought my site would contain a structured <code>content</code> folder along the lines of this:</p>
+<pre><code>[content]
+-&gt; [my-first-post]
+   -&gt; post.json
+   -&gt; post.markdown
+</code></pre><p>Each post would be in its own seperate folder, corresponding to the link address on the site. This folder would contain a <code>post.json</code> file containing some metadata such as title and date, and <code>post.markdown</code>. This file would contain the actual post and be written using <a href="http://daringfireball.net/projects/markdown/">Markdown</a>, allowing me to intuitively write posts that get rendered into beautiful HTML.</p>
+<p>This first approach ended up being quite easy - firstly get Node to read the folder structure when you first hit the blog page, and generate a nice list of &quot;links&quot; to pass to the Jade template. Clicking on a link would then render a new Jade template with the specific post content in.</p>
+<p>Great - but theres a problem. At the moment my site is deployed on <a href="https://www.heroku.com/">Heroku</a> meaning that any content update would require a git push and restarting of the app. So the next step, take what I&#39;ve learnt but extract the content to somewhere else.</p>
+<h3 id="phase-2-remote-content">Phase 2: Remote content</h3>
+<p>In using a remote location for my content, my thoughts first turned to Wheat, and storing the content in a file structure as before, but in a seperate Git repository. However, lately I have been playing around with <a href="https://www.firebase.com">Firebase</a>, and so I decided to have a bit of fun with that instead. It also allows much more flexibility - allowing me to post new content virtually anywhere.</p>
+<p>Expanding the data structure from my first attempt, my Firebase now looks something a little like this:</p>
+<pre><code>blogEntries
+-&gt;  new-professional-site
+    -&gt;  date:
+    -&gt;  post:
+    -&gt;  stub:
+    -&gt;  title:
+    -&gt;  url:
+</code></pre><p>Each new entry is added to the <code>blogEntries</code> child, keeping it nicely organised and allowing the use of specific security rules. The entry is keyed by its URL, mainly for readability purposes at the moment, but it may be handy later on. Each entry again contains things like date, title and the actual post, again written in Markdown. It also features a new <code>stub</code> - which will be used as a short summary when viewing all the blog entries before choosing one to drill into. This again is written in Markdown.</p>
+<p>Now when a user visits the blog page, Node starts up a Firebase <code>child_added</code> listener, populating the list of current blog entries, and then sticks them into the existing <code>blog.jade</code> template</p>
+<p>Drilling down into a particular blog post does a similar thing, except it registers...</p>
+<pre><code>once(&#39;value&#39;, function (snapshot)...
+</code></pre><p>on the particular child entry being viewed - after all, we are only interested in getting the entry once! This is then placed into the existing <code>blogEntry.jade</code>.</p>
+<h3 id="phase-3-content-management">Phase 3: Content management</h3>
+<p>Now that my Firebase was in place and ready to be used by the site, I needed a nicer way of actually writing the data, as opposed to directly modifying it through the Firebase UI. I wanted to write my posts in Markdown, edit the post metadata and then have them sent directly to Firebase.</p>
+<p>Enter <a href="https://github.com/MasterOfPoppets/blog-post-author">blog-post-author</a>.</p>
+<p>This is currently a simple program, again written with Node.js, that basically scans a <code>content</code> folder for three files: <code>post.json</code>, <code>post.markdown</code> and <code>stub.markdown</code>. Once it has these it fires off a <code>setWithPrioriy</code> call to Firebase using <code>Firebase.ServerValue.TIMESTAMP</code>, allowing me to order my posts chronologically.</p>
+<p>Currently this program is very basic - editing data essentially involves ensuring the URL in the <code>post.json</code> file is the same. Going back and editing more historical entries would definitely prove more annoying. However, the program does what I want to do, and I already have some great ideas of how to expand it!</p>
+<h3 id="phase-4-the-future-is-angular">Phase 4: The future is... Angular</h3>
+<p>Currently this is all being done on the server-side by Node. However, Firebase excels at running entirely on the client-side, so my next step with the blogging on this site is to move entirely to using AngularJS - in fact the only thing that will remain will be that my Node server will serve Jade templates as before, though these will be modified to use Angular directives instead of being passed in Jade variables.</p>
+<p>I also want to work on the blog-post-author project a bit, making it a bit more user friendly. I have a volunteer client who will be using this to post blog entries to the site we are developing and anything that makes his life easier is going to be great.</p>
+<p>Watch this space...!</p>
+</article>
+            </li>
+            <li>
+                <h3>Site Launch!</h3>
+                <article><p>Welcome to my professional site!</p>
+<p>I will be using this site as a showcase for my portfolio and web development skills. I will also be keeping a blog which I will detail some of the newer developments that appear on the site, as well as other, more general, ramblings.</p>
+</article>
+            </li>
+    </ul>
 </div>
-
 </body>
 </html>

@@ -1,3 +1,8 @@
+---
+title: Reloading Controllers with UI Router
+template: post.hbt
+date: 2015-01-12
+---
 When I began developing this site, I made the decision to use [UI Router](https://github.com/angular-ui/ui-router) for the client side routing, as opposed to ngRoute which is built-in to Angular.
 
 I made this decision because, despite the fact it is newer and therefore has issues, the benefits outweigh this. For example, I new that I wanted to create nested views as part of my portfolio page, and ngRoute just doesn't accomodate this.

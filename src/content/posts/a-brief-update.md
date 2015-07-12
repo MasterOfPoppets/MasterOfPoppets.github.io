@@ -1,7 +1,7 @@
 ---
 title: A Brief Update
-date: 31/05/2015
-template: home.hbt
+template: post.hbt
+date: 2015-05-31
 ---
 It has now been four months since my last post on here, but there has been an awful lot happening in that time!
 

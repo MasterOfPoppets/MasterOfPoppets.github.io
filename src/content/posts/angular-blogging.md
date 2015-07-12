@@ -1,3 +1,8 @@
+---
+title: Blogging with Angular
+template: post.hbt
+date: 2015-01-28
+---
 As I mentioned a little while ago in [this](http://garethhughes.io/blog/markdown-blogging-with-node) post, my intention was to move to an entirely client-side blogging engine. This would taking my existing solution which used Node to serve Jade templates containing a blog entry retrieved from Firebase, and moving the Firebase retrieval to the client-side.
 
 The plan was to still serve a small Jade template from Node, but instead of containing the actual blog entry, it would just contain a handful of Angular directives and data-bindings that I would create with a new module.

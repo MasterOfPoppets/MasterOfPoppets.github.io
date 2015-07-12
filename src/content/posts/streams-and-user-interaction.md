@@ -1,3 +1,9 @@
+---
+title: Streams and User Interaction
+template: post.hbt
+draft: true
+date: 2015-01-28
+---
 Take a quick look at this statement
 
 ```javascript
