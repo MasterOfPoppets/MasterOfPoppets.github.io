@@ -1,0 +1,18 @@
+<p>Take a quick look at this statement</p>
+<pre><code class="lang-javascript">user-interactions.pipe(virtual-dom).pipe(win)
+</code></pre>
+<p>It will either look like gibberish or you will glance at it with a knowing smile. I want this post to explore how something as mundane as changing my build tool of choice has led me to thinking why the above statement is nothing less than a revelation.</p>
+<h2 id="gulp-the-streaming-build-system">Gulp - The streaming build system</h2>
+<p>It all started one day at work when a colleague and I were getting tired of waiting around for 30+ seconds for Grunt to do everything that we&#39;d set it up to do. In a large system such as ours, constantly writing to file as a product of every task will eventually begin to cause real headaches. There must be a better way.</p>
+<p>I found a great article <a href="http://blog.keithcirkel.co.uk/why-we-should-stop-using-grunt/">about why we should stop using grunt and gulp.</a></p>
+<p>Now this article goes into great detail about how you can use npm scripts to cover pretty much anything you might want to do with your build tool. I felt however, that in terms of time to implement our existing tasks with a new build tool, Gulp would be faster as:</p>
+<ul>
+<li>I had a better handle on the language (javascript) than unix based scripting</li>
+<li>The code is cleaner, in as much as it is easier to see, for any given task, what its dependencies are</li>
+</ul>
+<p>So, having made the decision to use Gulp, I set about reading up. Initially I was puzzled by what seemed like a lack of documentation, but I quickly realised this is one of the powers of Gulp. Having just a handful of commands to learn and a &quot;code over configuration&quot; vibe means that you don&#39;t get bogged down over fiddly syntax.</p>
+<p>The <a href="https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md">Gulp documentation</a> is actually brilliant. First you get a <a href="https://github.com/gulpjs/gulp/tree/master/docs/recipes">couple of recipes</a> - how to achieve common tasks the Gulp way, and then <a href="https://github.com/gulpjs/gulp/blob/master/docs/README.md#articles">several articles</a> on further information.</p>
+<p>The most eye-opening one of these is a fantastic <a href="https://github.com/substack/stream-handbook">Introduction to Node Streams</a> - I urge you to go and read it. All. Now.</p>
+<h2 id="streamy-thing-goes-in-streamy-thing-comes-out">Streamy thing goes in, streamy thing comes out</h2>
+<p>One of the basic idea behind a stream, and this is another thing that attracted me to Gulp, is the idea that a stream should do one thing and do it well. Whereas a typical Grunt plugin with come with a barrage of options, a Gulp plugin, <a href="http://blog.overzealous.com/post/74121048393/why-you-shouldnt-create-a-gulp-plugin-or-how-to">if you need one at all</a>, shouldn&#39;t have any need for configuration options. Just take a look at the <a href="https://github.com/gruntjs/grunt-contrib-less">Grunt</a> and <a href="https://github.com/plus3network/gulp-less">Gulp</a> versions of something simple like a Less processor.</p>
+<p>By using streams we can create building blocks that we can connect - or pipe - together to create powerful combinations. The above Less plugin doesn&#39;t need an option to minify, because that is not it&#39;s job. It&#39;s job is to compile Less. If you then want to minify the result, pipe it to a <a href="https://github.com/murphydanger/gulp-minify-css">minifier!</a> </p>

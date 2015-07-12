@@ -1,3 +1,8 @@
+---
+title: A Brief Update
+date: 31/05/2015
+template: home.hbt
+---
 It has now been four months since my last post on here, but there has been an awful lot happening in that time!
 
 I feel that now is probably a good time to give a short update on what's been happening and new things that I have on the horizon.
