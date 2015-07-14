@@ -1,4 +1,5 @@
 var Metalsmith = require('metalsmith'),
+    Handlebars = require('handlebars'),
 	drafts = require('metalsmith-drafts'),
 	markdown = require('metalsmith-markdown'),
 	excerpts = require('metalsmith-excerpts'),
@@ -6,7 +7,12 @@ var Metalsmith = require('metalsmith'),
 	collections = require('metalsmith-collections'),
 	permalinks = require('metalsmith-permalinks'),
 	serve = require('metalsmith-serve'),
-	watch = require('metalsmith-watch')
+	watch = require('metalsmith-watch'),
+	config = require('./config')(process.argv)
+
+Handlebars.registerHelper('link', function (path) {
+    return config.baseUrl + '/' + path
+})
 
 Metalsmith(__dirname)
 	.source('./src')
@@ -34,8 +40,8 @@ Metalsmith(__dirname)
 		engine: 'handlebars',
 		directory: 'templates',
 		partials: {
-			header: 'header',
-			footer: 'footer'
+			header: 'partials/header',
+			footer: 'partials/footer'
 		}
 	}))
 	.use(serve({
