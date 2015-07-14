@@ -1,6 +1,5 @@
 {{> header}}
 
-
 <section id="promo" class="promo section offset-header">
     <div class="container text-center">
         <h2 class="title"><span class="highlight">Q</span>uantum</h2>
@@ -20,4 +19,5 @@
         {{/each}}
     </ul>
 </div>
+
 {{> footer}}
