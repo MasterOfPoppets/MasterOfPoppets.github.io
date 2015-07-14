@@ -1,8 +1,10 @@
 var prod = {
-        baseUrl: 'http://masterofpoppets.github.io/garethhughes.io/'
+        baseUrl: 'http://masterofpoppets.github.io/garethhughes.io/',
+        isDev: false
     },
     dev = {
-        baseUrl: 'http://localhost:8080'
+        baseUrl: 'http://localhost:8080/',
+        isDev: true
     }
 
 module.exports = function (args) {

@@ -1,5 +1,6 @@
 var Metalsmith = require('metalsmith'),
     Handlebars = require('handlebars'),
+    metalsmithIf = require('metalsmith-if'),
 	drafts = require('metalsmith-drafts'),
 	markdown = require('metalsmith-markdown'),
 	excerpts = require('metalsmith-excerpts'),
@@ -11,7 +12,7 @@ var Metalsmith = require('metalsmith'),
 	config = require('./config')(process.argv)
 
 Handlebars.registerHelper('link', function (path) {
-    return config.baseUrl + '/' + path
+    return config.baseUrl + path
 })
 
 Metalsmith(__dirname)
@@ -44,13 +45,13 @@ Metalsmith(__dirname)
 			footer: 'partials/footer'
 		}
 	}))
-	.use(serve({
-		port: 8080,
-		verbose: true
-	}))
-	.use(watch({
+    .use(metalsmithIf(config.isDev, serve({
+        port: 8080,
+        verbose: true
+    })))
+	.use(metalsmithIf(config.isDev, watch({
 		pattern: '**/*'
-	}))
+	})))
 	.build(function (err) {
 		if (err) throw err
 	})
