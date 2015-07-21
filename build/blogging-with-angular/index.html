@@ -1,4 +1,31 @@
-<p>As I mentioned a little while ago in <a href="http://garethhughes.io/blog/markdown-blogging-with-node">this</a> post, my intention was to move to an entirely client-side blogging engine. This would taking my existing solution which used Node to serve Jade templates containing a blog entry retrieved from Firebase, and moving the Firebase retrieval to the client-side.</p>
+<!doctype html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta name='description' content=''>
+    <meta name='author' content='Gareth Hughes'>
+
+    <title>Blogging with Angular</title>
+
+    <link rel='stylesheet' href='http://yui.yahooapis.com/pure/0.6.0/pure-min.css'>
+    <link rel='stylesheet' href='http://localhost:8080/styles/main.css'>
+</head>
+<body>
+<header id='header' class='header'>
+    <nav class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+        <a href='#' class="pure-menu-heading">Quantum</a>
+        <ul class="home-menu-list pure-menu-list">
+            <li class='pure-menu-item'><a class='pure-menu-link' href='#promo'>Home</a></li>
+            <li class='pure-menu-item'><a class='pure-menu-link' href='#about'>About</a></li>
+            <li class='pure-menu-item'><a class='pure-menu-link' href='#features'>Features</a></li>
+            <li class='pure-menu-item'><a class='pure-menu-link' href='#docs'>Docs</a></li>
+            <li class='pure-menu-item'><a class='pure-menu-link' href='#license'>License</a></li>
+            <li class='pure-menu-item'><a class='pure-menu-link' href='#contact'>Contact</a></li>
+        </ul>
+    </nav>
+</header><p>As I mentioned a little while ago in <a href="http://garethhughes.io/blog/markdown-blogging-with-node">this</a> post, my intention was to move to an entirely client-side blogging engine. This would taking my existing solution which used Node to serve Jade templates containing a blog entry retrieved from Firebase, and moving the Firebase retrieval to the client-side.</p>
 <p>The plan was to still serve a small Jade template from Node, but instead of containing the actual blog entry, it would just contain a handful of Angular directives and data-bindings that I would create with a new module.</p>
 <h3 id="the-fireblogger-module">The Fireblogger module</h3>
 <p>Creating a new module in Angular is great in order to encapsulate a small amount of functionality for a particular purpose. In this case, I wanted my module to do a handful of jobs:</p>

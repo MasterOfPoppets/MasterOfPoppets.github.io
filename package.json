@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "node index.js",
-    "deploy": "node index.js --prod && publish.sh"
+    "deploy": "node index.js --prod"
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,8 @@
     "metalsmith-drafts": "0.0.1",
     "metalsmith-excerpts": "^1.0.0",
     "metalsmith-if": "0.0.1",
+    "metalsmith-ignore": "^0.1.2",
+    "metalsmith-less": "^2.0.0",
     "metalsmith-markdown": "^0.2.1",
     "metalsmith-permalinks": "^0.4.0",
     "metalsmith-serve": "0.0.3",

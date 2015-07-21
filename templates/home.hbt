@@ -1,23 +1,20 @@
 {{> header}}
-
 <section id="promo" class="promo section offset-header">
     <div class="container text-center">
         <h2 class="title"><span class="highlight">Q</span>uantum</h2>
         <p class="intro">Mean web development</p>
     </div>
 </section>
-
 <div class="main-wrapper">
     <ul>
         {{#each collections.homePosts}}
-            <li>
-                <h3>
-                    <a href="{{link this.path}}">{{this.title}}</a>
-                </h3>
-                <article>{{{this.excerpt}}}</article>
-            </li>
+        <li>
+            <h3>
+                <a href="{{link this.path}}">{{this.title}}</a>
+            </h3>
+            <article>{{{this.excerpt}}}</article>
+        </li>
         {{/each}}
     </ul>
 </div>
-
 {{> footer}}

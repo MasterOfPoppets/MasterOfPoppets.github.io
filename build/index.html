@@ -1,59 +1,57 @@
 <!doctype html>
-<html lang="en">
+<html lang='en'>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Gareth Hughes">
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta name='description' content=''>
+    <meta name='author' content='Gareth Hughes'>
 
     <title>Quantum Web Development</title>
 
-    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="http://masterofpoppets.github.io/garethhughes.io/styles/bootstrap.min.css">
-    <link rel="stylesheet" href="http://masterofpoppets.github.io/garethhughes.io/styles/font-awesome.min.css">
-    <link rel="stylesheet" href="http://masterofpoppets.github.io/garethhughes.io/styles/styles.css">
+    <link rel='stylesheet' href='http://yui.yahooapis.com/pure/0.6.0/pure-min.css'>
+    <link rel='stylesheet' href='http://localhost:8080/styles/main.css'>
 </head>
 <body>
-<header id="header" class="header">
-    <div class="container">
-        <h1 class="logo pull-left">
-            <a class="scrollto" href="#promo">
-                <span class="logo-title">Quantum</span>
-            </a>
-        </h1>
-    </div>
-</header>
-<section id="promo" class="promo section offset-header">
+<header id='header' class='header'>
+    <nav class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+        <a href='#' class="pure-menu-heading">Quantum</a>
+        <ul class="home-menu-list pure-menu-list">
+            <li class='pure-menu-item'><a class='pure-menu-link' href='#promo'>Home</a></li>
+            <li class='pure-menu-item'><a class='pure-menu-link' href='#about'>About</a></li>
+            <li class='pure-menu-item'><a class='pure-menu-link' href='#features'>Features</a></li>
+            <li class='pure-menu-item'><a class='pure-menu-link' href='#docs'>Docs</a></li>
+            <li class='pure-menu-item'><a class='pure-menu-link' href='#license'>License</a></li>
+            <li class='pure-menu-item'><a class='pure-menu-link' href='#contact'>Contact</a></li>
+        </ul>
+    </nav>
+</header><section id="promo" class="promo section offset-header">
     <div class="container text-center">
         <h2 class="title"><span class="highlight">Q</span>uantum</h2>
         <p class="intro">Mean web development</p>
     </div>
 </section>
-
 <div class="main-wrapper">
     <ul>
-            <li>
-                <h3>
-                    <a href="http://masterofpoppets.github.io/garethhughes.io/a-brief-update">A Brief Update</a>
-                </h3>
-                <article><p>It has now been four months since my last post on here, but there has been an awful lot happening in that time!</p></article>
-            </li>
-            <li>
-                <h3>
-                    <a href="http://masterofpoppets.github.io/garethhughes.io/blogging-with-angular">Blogging with Angular</a>
-                </h3>
-                <article><p>As I mentioned a little while ago in <a href="http://garethhughes.io/blog/markdown-blogging-with-node">this</a> post, my intention was to move to an entirely client-side blogging engine. This would taking my existing solution which used Node to serve Jade templates containing a blog entry retrieved from Firebase, and moving the Firebase retrieval to the client-side.</p></article>
-            </li>
-            <li>
-                <h3>
-                    <a href="http://masterofpoppets.github.io/garethhughes.io/reloading-controllers-with-ui-router">Reloading Controllers with UI Router</a>
-                </h3>
-                <article><p>When I began developing this site, I made the decision to use <a href="https://github.com/angular-ui/ui-router">UI Router</a> for the client side routing, as opposed to ngRoute which is built-in to Angular.</p></article>
-            </li>
+        <li>
+            <h3>
+                <a href="http://localhost:8080/a-brief-update">A Brief Update</a>
+            </h3>
+            <article><p>It has now been four months since my last post on here, but there has been an awful lot happening in that time!</p></article>
+        </li>
+        <li>
+            <h3>
+                <a href="http://localhost:8080/blogging-with-angular">Blogging with Angular</a>
+            </h3>
+            <article><p>As I mentioned a little while ago in <a href="http://garethhughes.io/blog/markdown-blogging-with-node">this</a> post, my intention was to move to an entirely client-side blogging engine. This would taking my existing solution which used Node to serve Jade templates containing a blog entry retrieved from Firebase, and moving the Firebase retrieval to the client-side.</p></article>
+        </li>
+        <li>
+            <h3>
+                <a href="http://localhost:8080/reloading-controllers-with-ui-router">Reloading Controllers with UI Router</a>
+            </h3>
+            <article><p>When I began developing this site, I made the decision to use <a href="https://github.com/angular-ui/ui-router">UI Router</a> for the client side routing, as opposed to ngRoute which is built-in to Angular.</p></article>
+        </li>
     </ul>
 </div>
-
 </body>
 </html>

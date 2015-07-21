@@ -1,27 +1,28 @@
 <!doctype html>
-<html lang="en">
+<html lang='en'>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Gareth Hughes">
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta name='description' content=''>
+    <meta name='author' content='Gareth Hughes'>
 
     <title>{{title}}</title>
 
-    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="{{link 'styles/bootstrap.min.css'}}">
-    <link rel="stylesheet" href="{{link 'styles/font-awesome.min.css'}}">
-    <link rel="stylesheet" href="{{link 'styles/styles.css'}}">
+    <link rel='stylesheet' href='http://yui.yahooapis.com/pure/0.6.0/pure-min.css'>
+    <link rel='stylesheet' href='{{link 'styles/main.css'}}'>
 </head>
 <body>
-<header id="header" class="header">
-    <div class="container">
-        <h1 class="logo pull-left">
-            <a class="scrollto" href="#promo">
-                <span class="logo-title">Quantum</span>
-            </a>
-        </h1>
-    </div>
+<header id='header' class='header'>
+    <nav class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+        <a href='#' class="pure-menu-heading">Quantum</a>
+        <ul class="home-menu-list pure-menu-list">
+            <li class='pure-menu-item'><a class='pure-menu-link' href='#promo'>Home</a></li>
+            <li class='pure-menu-item'><a class='pure-menu-link' href='#about'>About</a></li>
+            <li class='pure-menu-item'><a class='pure-menu-link' href='#features'>Features</a></li>
+            <li class='pure-menu-item'><a class='pure-menu-link' href='#docs'>Docs</a></li>
+            <li class='pure-menu-item'><a class='pure-menu-link' href='#license'>License</a></li>
+            <li class='pure-menu-item'><a class='pure-menu-link' href='#contact'>Contact</a></li>
+        </ul>
+    </nav>
 </header>
