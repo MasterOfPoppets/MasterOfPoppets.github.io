@@ -10,7 +10,6 @@ var Metalsmith = require('metalsmith'),
 	permalinks = require('metalsmith-permalinks'),
     ignore = require('metalsmith-ignore'),
 	serve = require('metalsmith-serve'),
-	watch = require('metalsmith-watch'),
 	config = require('./config')(process.argv)
 
 Handlebars.registerHelper('link', function (path) {
@@ -21,7 +20,12 @@ Metalsmith(__dirname)
 	.source('./src')
 	.destination('./build')
 	.use(drafts())
-    .use(less())
+    .use(less({
+        pattern: 'less/main.less',
+        render: {
+            paths: ['src/less']
+        }
+    }))
 	.use(markdown())
 	.use(excerpts())
 	.use(permalinks({
@@ -49,16 +53,12 @@ Metalsmith(__dirname)
 		}
 	}))
     .use(ignore([
-        'styles/*',
-        '!styles/main.css'
+        '**/*.less'
     ]))
     .use(metalsmithIf(config.isDev, serve({
         port: 8080,
         verbose: true
     })))
-	.use(metalsmithIf(config.isDev, watch({
-		pattern: '**/*'
-	})))
 	.build(function (err) {
 		if (err) throw err
 	})

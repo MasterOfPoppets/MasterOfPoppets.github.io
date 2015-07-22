@@ -13,3 +13,16 @@
     float: right;
   }
 }
+.splash-container {
+  background: #A5C78B none repeat scroll 0 0;
+  height: 88%;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+.main-wrapper {
+  background: white none scroll repeat 0 0;
+  position: absolute;
+  top: 87%;
+  z-index: 2;
+}

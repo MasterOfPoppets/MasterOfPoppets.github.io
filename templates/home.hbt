@@ -1,10 +1,5 @@
 {{> header}}
-<section id="promo" class="promo section offset-header">
-    <div class="container text-center">
-        <h2 class="title"><span class="highlight">Q</span>uantum</h2>
-        <p class="intro">Mean web development</p>
-    </div>
-</section>
+
 <div class="main-wrapper">
     <ul>
         {{#each collections.homePosts}}
@@ -17,4 +12,5 @@
         {{/each}}
     </ul>
 </div>
+
 {{> footer}}

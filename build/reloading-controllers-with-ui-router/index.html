@@ -10,14 +10,14 @@
     <title>Reloading Controllers with UI Router</title>
 
     <link rel='stylesheet' href='http://yui.yahooapis.com/pure/0.6.0/pure-min.css'>
-    <link rel='stylesheet' href='http://masterofpoppets.github.io/garethhughes.io/styles/main.css'>
+    <link rel='stylesheet' href='http://masterofpoppets.github.io/garethhughes.io/css/main.css'>
 </head>
 <body>
-<header id='header' class='header'>
+<header class='header'>
     <nav class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
-        <a href='#' class="pure-menu-heading">Quantum</a>
+        <a href='/' class="pure-menu-heading">Quantum</a>
         <ul class="home-menu-list pure-menu-list">
-            <li class='pure-menu-item'><a class='pure-menu-link' href='#promo'>Home</a></li>
+            <li class='pure-menu-item'><a class='pure-menu-link' href='/'>Home</a></li>
             <li class='pure-menu-item'><a class='pure-menu-link' href='#about'>About</a></li>
             <li class='pure-menu-item'><a class='pure-menu-link' href='#features'>Features</a></li>
             <li class='pure-menu-item'><a class='pure-menu-link' href='#docs'>Docs</a></li>
@@ -25,7 +25,9 @@
             <li class='pure-menu-item'><a class='pure-menu-link' href='#contact'>Contact</a></li>
         </ul>
     </nav>
-</header><p>When I began developing this site, I made the decision to use <a href="https://github.com/angular-ui/ui-router">UI Router</a> for the client side routing, as opposed to ngRoute which is built-in to Angular.</p>
+</header>
+<div class="splash-container">
+</div><p>When I began developing this site, I made the decision to use <a href="https://github.com/angular-ui/ui-router">UI Router</a> for the client side routing, as opposed to ngRoute which is built-in to Angular.</p>
 <p>I made this decision because, despite the fact it is newer and therefore has issues, the benefits outweigh this. For example, I new that I wanted to create nested views as part of my portfolio page, and ngRoute just doesn&#39;t accomodate this.</p>
 <p>I also really prefer the idea of a &#39;state&#39; within my app - this feels like it fits in a lot better with the MVC architecture, and I can map different states, often within the same page, to different controllers.</p>
 <p>Unfortunately, whilst developing my contact page, I came across one of the issues with UI Router, namely that it isn&#39;t possible to reload a controller. This was a problem for me because I wanted the animations that I had built into the page to run every time a user transitions from submitting the form to the success page. There are various workarounds on the UI Router github page for this issue, but these didn&#39;t appear to work for me, possibly because of the nested nature of the states in my app.</p>
