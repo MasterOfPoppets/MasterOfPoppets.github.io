@@ -1,5 +1,5 @@
 .home-menu {
-  background: #2D3E50 none repeat scroll 0 0;
+  background: #01a5a7 none repeat scroll 0 0;
   padding: 0.5em;
   text-align: center;
 }
@@ -8,17 +8,45 @@
     text-align: left;
   }
 }
+.home-menu-link {
+  color: #2f2933;
+}
+.home-menu-link:hover {
+  background-color: inherit;
+  color: #63566c;
+}
 @media only screen and (min-width: 792px) {
   .home-menu-list {
     float: right;
   }
 }
 .splash-container {
-  background: #A5C78B none repeat scroll 0 0;
+  background: #2bdac2 none repeat scroll 0 0;
   height: 88%;
   position: fixed;
   width: 100%;
   z-index: 1;
+}
+.splash {
+  color: #ffffff;
+  height: 50%;
+  left: 25%;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  text-align: center;
+  top: 100px;
+  width: 50%;
+}
+.splash-head {
+  border: 3px solid #ffffff;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  font-size: 250%;
+  font-weight: 100;
+  padding: 1em;
+  text-transform: uppercase;
 }
 .main-wrapper {
   background: white none scroll repeat 0 0;

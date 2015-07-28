@@ -1,7 +1,32 @@
+@import "theme";
+
 .splash-container {
-  background: #A5C78B none repeat scroll 0 0;
+  background: @main-colour none repeat scroll 0 0;
   height: 88%;
   position: fixed;
   width: 100%;
   z-index: 1;
+}
+
+.splash {
+  color: @white;
+  height: 50%;
+  left: 25%;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  text-align: center;
+  top: 100px;
+  width: 50%;
+}
+
+.splash-head {
+  border: 3px solid @white;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  font-size: 250%;
+  font-weight: 100;
+  padding: 1em;
+  text-transform: uppercase;
 }

@@ -10,41 +10,44 @@
     <title>Quantum Web Development</title>
 
     <link rel='stylesheet' href='http://yui.yahooapis.com/pure/0.6.0/pure-min.css'>
-    <link rel='stylesheet' href='http://masterofpoppets.github.io/garethhughes.io/css/main.css'>
+    <link rel='stylesheet' href='http://localhost:8080/css/main.css'>
 </head>
 <body>
 <header class='header'>
     <nav class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
-        <a href='/' class="pure-menu-heading">Quantum</a>
+        <a href='/' class="home-menu-link pure-menu-heading">Quantum</a>
         <ul class="home-menu-list pure-menu-list">
-            <li class='pure-menu-item'><a class='pure-menu-link' href='/'>Home</a></li>
-            <li class='pure-menu-item'><a class='pure-menu-link' href='#about'>About</a></li>
-            <li class='pure-menu-item'><a class='pure-menu-link' href='#features'>Features</a></li>
-            <li class='pure-menu-item'><a class='pure-menu-link' href='#docs'>Docs</a></li>
-            <li class='pure-menu-item'><a class='pure-menu-link' href='#license'>License</a></li>
-            <li class='pure-menu-item'><a class='pure-menu-link' href='#contact'>Contact</a></li>
+            <li class='pure-menu-item'><a class='home-menu-link pure-menu-link' href='http://localhost:8080/'>Home</a></li>
+            <li class='pure-menu-item'><a class='home-menu-link pure-menu-link' href='http://localhost:8080/portfolio'>Portfolio</a></li>
+            <li class='pure-menu-item'><a class='home-menu-link pure-menu-link' href='http://localhost:8080/blog'>Blog</a></li>
+            <li class='pure-menu-item'><a class='home-menu-link pure-menu-link' href='http://localhost:8080/contact'>Contact</a></li>
         </ul>
     </nav>
 </header>
 <div class="splash-container">
+    <div class="splash">
+        <h1 class="splash-head">Quantum</h1>
+        <p>mean web development</p>
+    </div>
 </div>
+
 <div class="main-wrapper">
     <ul>
         <li>
             <h3>
-                <a href="http://masterofpoppets.github.io/garethhughes.io/a-brief-update">A Brief Update</a>
+                <a href="http://localhost:8080/a-brief-update">A Brief Update</a>
             </h3>
             <article><p>It has now been four months since my last post on here, but there has been an awful lot happening in that time!</p></article>
         </li>
         <li>
             <h3>
-                <a href="http://masterofpoppets.github.io/garethhughes.io/blogging-with-angular">Blogging with Angular</a>
+                <a href="http://localhost:8080/blogging-with-angular">Blogging with Angular</a>
             </h3>
             <article><p>As I mentioned a little while ago in <a href="http://garethhughes.io/blog/markdown-blogging-with-node">this</a> post, my intention was to move to an entirely client-side blogging engine. This would taking my existing solution which used Node to serve Jade templates containing a blog entry retrieved from Firebase, and moving the Firebase retrieval to the client-side.</p></article>
         </li>
         <li>
             <h3>
-                <a href="http://masterofpoppets.github.io/garethhughes.io/reloading-controllers-with-ui-router">Reloading Controllers with UI Router</a>
+                <a href="http://localhost:8080/reloading-controllers-with-ui-router">Reloading Controllers with UI Router</a>
             </h3>
             <article><p>When I began developing this site, I made the decision to use <a href="https://github.com/angular-ui/ui-router">UI Router</a> for the client side routing, as opposed to ngRoute which is built-in to Angular.</p></article>
         </li>

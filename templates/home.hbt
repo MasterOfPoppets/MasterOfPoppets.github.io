@@ -1,5 +1,12 @@
 {{> header}}
 
+<div class="splash-container">
+    <div class="splash">
+        <h1 class="splash-head">Quantum</h1>
+        <p>mean web development</p>
+    </div>
+</div>
+
 <div class="main-wrapper">
     <ul>
         {{#each collections.homePosts}}
