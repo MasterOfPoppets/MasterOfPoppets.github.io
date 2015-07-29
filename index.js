@@ -1,15 +1,16 @@
 var Metalsmith = require('metalsmith'),
     Handlebars = require('handlebars'),
-    metalsmithIf = require('metalsmith-if'),
 	drafts = require('metalsmith-drafts'),
-    less = require('metalsmith-less'),
+    collections = require('metalsmith-collections'),
 	markdown = require('metalsmith-markdown'),
 	excerpts = require('metalsmith-excerpts'),
+    permalinks = require('metalsmith-permalinks'),
+    less = require('metalsmith-less'),
 	templates = require('metalsmith-templates'),
-	collections = require('metalsmith-collections'),
-	permalinks = require('metalsmith-permalinks'),
     ignore = require('metalsmith-ignore'),
-	serve = require('metalsmith-serve'),
+    msIf = require('metalsmith-if'),
+    serve = require('metalsmith-serve'),
+    watch = require('metalsmith-watch'),
 	siteConfig = require('./config/site')(process.argv)
 
 Handlebars.registerHelper('link', function (path) {
@@ -18,18 +19,16 @@ Handlebars.registerHelper('link', function (path) {
 
 Metalsmith(__dirname)
 	.source('./src')
-	.use(drafts())
-    .use(less(require('./config/less')))
-	.use(markdown())
+    .use(drafts())
+    .use(collections(require('./config/collections')))
+    .use(markdown())
 	.use(excerpts())
 	.use(permalinks(require('./config/permalinks')))
-	.use(collections(require('./config/collections')))
+    .use(less(require('./config/less')))
 	.use(templates(require('./config/templates')))
     .use(ignore(require('./config/ignore')))
-    .use(metalsmithIf(siteConfig.isDev, serve({
-        port: 8080,
-        verbose: true
-    })))
+    .use(msIf(siteConfig.isDev, serve(require('./config/serve'))))
+    .use(msIf(siteConfig.isDev, watch(require('./config/watch'))))
     .destination('./build')
 	.build(function (err) {
 		if (err) throw err

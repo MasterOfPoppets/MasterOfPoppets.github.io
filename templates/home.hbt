@@ -9,7 +9,7 @@
 
 <div class="main-wrapper">
     <ul>
-        {{#each collections.homePosts}}
+        {{#each collections.posts}}
         <li>
             <h3>
                 <a href="{{link this.path}}">{{this.title}}</a>

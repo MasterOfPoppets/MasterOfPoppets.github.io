@@ -10,7 +10,7 @@ var prod = {
 module.exports = function (args) {
     var config = dev
     args.forEach(function (arg) {
-        if (arg === '-p' || arg === '--prod') {
+        if (arg === '-p' || arg === '--production') {
             config = prod
         }
     })

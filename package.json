@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "node index.js",
-    "deploy": "node index.js --prod && cd build && git init . && git add . && git commit -m \"Deploy\" && git push \"https://github.com/MasterOfPoppets/garethhughes.io.git\" master:gh-pages --force && rimraf .git"
+    "deploy": "npm run build -- --production && cd build && git init . && git add . && git commit -m \"Deploy\" && git push \"https://github.com/MasterOfPoppets/garethhughes.io.git\" master:gh-pages --force && rimraf .git"
   },
   "repository": {
     "type": "git",
@@ -34,6 +34,7 @@
     "metalsmith-permalinks": "^0.4.0",
     "metalsmith-serve": "0.0.3",
     "metalsmith-templates": "^0.7.0",
+    "metalsmith-watch": "^1.0.1",
     "rimraf": "^2.4.2"
   }
 }

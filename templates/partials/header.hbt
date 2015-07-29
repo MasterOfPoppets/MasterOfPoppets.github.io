@@ -15,7 +15,7 @@
 <body>
 <header class='header'>
     <nav class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
-        <a href='/' class="home-menu-link pure-menu-heading">Quantum</a>
+        <a href='{{link ''}}' class="home-menu-link pure-menu-heading">Quantum</a>
         <ul class="home-menu-list pure-menu-list">
             <li class='pure-menu-item'><a class='home-menu-link pure-menu-link' href='{{link ''}}'>Home</a></li>
             <li class='pure-menu-item'><a class='home-menu-link pure-menu-link' href='{{link 'portfolio'}}'>Portfolio</a></li>
