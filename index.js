@@ -10,55 +10,27 @@ var Metalsmith = require('metalsmith'),
 	permalinks = require('metalsmith-permalinks'),
     ignore = require('metalsmith-ignore'),
 	serve = require('metalsmith-serve'),
-	config = require('./config')(process.argv)
+	siteConfig = require('./config/site')(process.argv)
 
 Handlebars.registerHelper('link', function (path) {
-    return config.baseUrl + path
+    return siteConfig.baseUrl + path
 })
 
 Metalsmith(__dirname)
 	.source('./src')
-	.destination('./build')
 	.use(drafts())
-    .use(less({
-        pattern: 'less/main.less',
-        render: {
-            paths: ['src/less']
-        }
-    }))
+    .use(less(require('./config/less')))
 	.use(markdown())
 	.use(excerpts())
-	.use(permalinks({
-		pattern: ':title'
-	}))
-	.use(collections({
-		posts: {
-			pattern: '*/*.html',
-			sortBy: 'date',
-			reverse: true
-		},
-		homePosts: {
-			pattern: '*/*.html',
-			sortBy: 'date',
-			reverse: true,
-			limit: 3
-		}
-	}))
-	.use(templates({
-		engine: 'handlebars',
-		directory: 'templates',
-		partials: {
-			header: 'partials/header',
-			footer: 'partials/footer'
-		}
-	}))
-    .use(ignore([
-        '**/*.less'
-    ]))
-    .use(metalsmithIf(config.isDev, serve({
+	.use(permalinks(require('./config/permalinks')))
+	.use(collections(require('./config/collections')))
+	.use(templates(require('./config/templates')))
+    .use(ignore(require('./config/ignore')))
+    .use(metalsmithIf(siteConfig.isDev, serve({
         port: 8080,
         verbose: true
     })))
+    .destination('./build')
 	.build(function (err) {
 		if (err) throw err
 	})
