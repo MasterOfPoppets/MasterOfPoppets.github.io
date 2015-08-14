@@ -1,6 +1,6 @@
 module.exports = {
-    pattern: 'less/main.less',
-    render: {
-        paths: ['src/less']
-    }
+  pattern: 'less/main.less',
+  render: {
+    paths: ['src/less']
+  }
 }

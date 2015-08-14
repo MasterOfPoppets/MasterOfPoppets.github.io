@@ -1,8 +1,9 @@
 ---
 title: Reloading Controllers with UI Router
 template: post.hbt
-date: 2015-01-12
+date: 2015-01-12T00:00:00.000Z
 ---
+
 When I began developing this site, I made the decision to use [UI Router](https://github.com/angular-ui/ui-router) for the client side routing, as opposed to ngRoute which is built-in to Angular.
 
 I made this decision because, despite the fact it is newer and therefore has issues, the benefits outweigh this. For example, I new that I wanted to create nested views as part of my portfolio page, and ngRoute just doesn't accomodate this.
@@ -13,11 +14,13 @@ Unfortunately, whilst developing my contact page, I came across one of the issue
 
 In the end, I decided to take a look at the events that UI Router fires, and try to figure out how I could use them to my advantage. UI Router fires several events, including one that indicates a successful transition to a new state. Great! This is just what I need.
 
-    $scope.$on('$stateChangeSuccess', function () {
-      if ($state.is('contact.success')) {
-        $scope.entryOpacity = $famousAnimations.animateIn();
-      }
-    });
+```
+$scope.$on('$stateChangeSuccess', function () {
+  if ($state.is('contact.success')) {
+    $scope.entryOpacity = $famousAnimations.animateIn();
+  }
+});
+```
 
 When I first create my controller for handling the transition to the success page, I am registering a listener to the `$stateChangeSuccess` event. From that point, every time I receive an event of that type, I check that the current state is `contact.success` and if it is, execute my animation code. I have to check the current state, since every successful transition will fire this event, regardless which state it ends up in.
 

@@ -1,28 +1,30 @@
 <!doctype html>
 <html lang='en'>
+
 <head>
-    <meta charset='UTF-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <meta name='description' content=''>
-    <meta name='author' content='Gareth Hughes'>
+  <meta charset='UTF-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <meta name='description' content=''>
+  <meta name='author' content='Gareth Hughes'>
 
-    <title>{{title}}</title>
+  <title>{{title}}</title>
 
-    <link rel='stylesheet' href='http://yui.yahooapis.com/pure/0.6.0/pure-min.css'>
-    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-    <link rel='stylesheet' href='{{link 'css/main.css'}}'>
+  <link rel='stylesheet' href='http://yui.yahooapis.com/pure/0.6.0/pure-min.css'>
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+  <link rel='stylesheet' href='{{link ' css/main.css '}}'>
 </head>
+
 <body>
-<header class='header'>
+  <header class='header'>
     <nav class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
-        <a href='{{link ''}}' class="home-menu-link pure-menu-heading">Quantum</a>
-        <ul class="home-menu-list pure-menu-list">
-            <li class='pure-menu-item'><a class='home-menu-link pure-menu-link' href='{{link ''}}'>Home</a></li>
-            <li class='pure-menu-item'><a class='home-menu-link pure-menu-link' href='{{link 'portfolio'}}'>Portfolio</a></li>
-            <li class='pure-menu-item'><a class='home-menu-link pure-menu-link' href='{{link 'blog'}}'>Blog</a></li>
-            <li class='pure-menu-item'><a class='home-menu-link pure-menu-link' href='{{link 'contact'}}'>Contact</a></li>
-        </ul>
+      <a href='{{link ' '}}' class="home-menu-link pure-menu-heading">Quantum</a>
+      <ul class="home-menu-list pure-menu-list">
+        <li class='pure-menu-item'><a class='home-menu-link pure-menu-link' href='{{link ' '}}'>Home</a></li>
+        <li class='pure-menu-item'><a class='home-menu-link pure-menu-link' href='{{link ' portfolio '}}'>Portfolio</a></li>
+        <li class='pure-menu-item'><a class='home-menu-link pure-menu-link' href='{{link ' blog '}}'>Blog</a></li>
+        <li class='pure-menu-item'><a class='home-menu-link pure-menu-link' href='{{link ' contact '}}'>Contact</a></li>
+      </ul>
     </nav>
-</header>
+  </header>

@@ -1,4 +1,4 @@
 module.exports = {
-    port: 8080,
-    verbose: true
+  port: 8080,
+  verbose: true
 }
