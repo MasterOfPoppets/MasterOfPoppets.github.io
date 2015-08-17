@@ -1,13 +1,10 @@
 module.exports = {
+  pages: {
+    pattern: 'content/pages/*.md'
+  },
   posts: {
-    pattern: 'content/**/*.md',
+    pattern: 'content/posts/*.md',
     sortBy: 'date',
     reverse: true
-  },
-  latestPosts: {
-    pattern: 'content/**/*.md',
-    sortBy: 'date',
-    reverse: true,
-    limit: 3
   }
 }

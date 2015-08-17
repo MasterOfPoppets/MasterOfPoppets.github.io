@@ -1,0 +1,46 @@
+---
+title: GBST Syn~ Web Framework
+template: page.hbt
+---
+
+GBST is a provider of software and services to the global financial services industry. Their current offering is Syn~, a highly configurable and dynamic platform for Straight-Through Processing of high volumes of financial transactions.
+
+I joined GBST as a software developer as part of their Graduate scheme. In 2008 my technical skills were recognised and I was promoted to design and develop a new web framework for the product. My continued development in this area led to a promotion to Web Architect in 2011 and I also managed a small team of developers.
+
+```
+img.img-responsive(src='http://res.cloudinary.com/gurrkin/image/upload/v1422541322/portfolio/gbst-syn/syn_trade_details.png' alt='Syn Trade Details screen')
+figcaption A trade details screen built using the Syn~ Web Framework
+```
+
+The team decided that in order to build the framework, we would use    <a href='http://www.gwtproject.org/'>Google Web Toolkit</a>   as it would enable other developers to program in Java, a language that they were more familiar with than Javascript.
+
+The role of the framework was to provide a set of Widgets and Layouts so that screen developers could construct a fully-functioning screen while maintaining a consistent design across the entire application. The framework also had to ensure consistent communication took place with the back-end server so that user data and actions could interact with the rest of the system.
+
+Within the application, widgets could range from a simple label displaying a single piece of read-only data, to tables representing complex collections of objects. The philosophy behind the widgets was that a screen builder would, at the simplest level, not care about what widget they needed to use to represent a piece of data - they would just bind a generic widget to a data field. The framework would then create the correct widget on the screen, based on factors such as the type, whether the object is being edited and whether the user has the ability to edit that specific piece of data.
+
+```
+img.img-responsive(src='http://res.cloudinary.com/gurrkin/image/upload/v1422541323/portfolio/gbst-syn/syn_trade_capture.png' alt='Syn Trade Capture screen')
+figcaption
+  | A trade capture screen built using the Syn~ Web Framework. The underlying
+  | framework is responsible for creating the appropriate input fields and
+  | validation errors.
+```
+
+I felt that the previous version of the GBST web offering offered too much freedom to developers working on screens and this resulted in an application which often looked vastly different from one screen to the next. Layouts were my solution to this problem. Any given screen could be constructed using one of a small number of layouts, chosen based on the general purpose of the screen e.g. editing simple data, viewing tabular data or viewing object workflow.
+
+A layout represented a series of slots that widgets or groups of widgets could be plugged into. This helped to ensure a more cohesive design across the whole application, without individual screen developers having to cross-reference many screens to check that what they were making matched the existing screens.
+
+```
+img.img-responsive(src='http://res.cloudinary.com/gurrkin/image/upload/v1422541319/portfolio/gbst-syn/syn_workflow.png' alt='Syn SSI Workflow screen')
+figcaption
+  | An SSI (Standard Settlement Instruction) workflow screen - this data is
+  | retrieved via a service call to the back-end.
+```
+
+Of course, in order to provide such a rich and functional application, the back-end server needs to be great. GWT uses AJAX via a wrapper called RPC. By using GWT RPC I was able to create services that allowed two-way communication between the user and the underlying Syn~ processing system.
+
+It was imperative that we had a good testing framework in place. Once an individual screen had been made, it was tested using    <a href='http://www.tricentis.com/products'>Tosca</a>. However, the framework itself required a robust test suite to be in place before anyone was able to make screens. For this we used Selenium WebDriver and JUnit 4.0 to create a comprehensive set of tests to cover every facet of the framework.
+
+Visit the <a href='http://gbst.com/'>GBST</a> site for more information about the company.
+
+You can also read more about GBST and how they use GWT in <a href='http://google-web-toolkit.googlecode.com/files/CaseStudy-GBST-Uses-GWT.pdf'>this case study</a>.

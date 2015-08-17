@@ -1,3 +1,3 @@
 module.exports = {
-  pattern: ':title'
+  pattern: ':collection/:title'
 }
