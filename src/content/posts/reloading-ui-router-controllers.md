@@ -1,6 +1,6 @@
 ---
 title: Reloading Controllers with UI Router
-template: post.hbt
+layout: post.hbs
 date: 2015-01-12T00:00:00.000Z
 ---
 

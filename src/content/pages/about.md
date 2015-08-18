@@ -1,6 +1,6 @@
 ---
 title: About
-template: page.hbt
+layout: page.hbs
 ---
 
 Quantum Web Development Ltd was set up by Gareth Hughes in 2015.

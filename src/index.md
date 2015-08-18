@@ -1,5 +1,5 @@
 ---
 title: Quantum Web Development
-template: home.hbt
+layout: home.hbs
 permalink: false
 ---

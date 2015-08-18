@@ -1,6 +1,6 @@
 ---
 title: A Brief Update
-template: post.hbt
+layout: post.hbs
 date: 2015-05-31T00:00:00.000Z
 ---
 

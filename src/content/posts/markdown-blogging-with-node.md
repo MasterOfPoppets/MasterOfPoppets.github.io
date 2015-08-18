@@ -1,6 +1,6 @@
 ---
 title: Markdown Blogging with Node.JS and Firebase
-template: post.hbt
+layout: post.hbs
 date: 2014-12-03T00:00:00.000Z
 ---
 

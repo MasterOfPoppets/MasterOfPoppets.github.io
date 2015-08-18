@@ -1,6 +1,6 @@
 ---
 title: Blogging with Angular
-template: post.hbt
+layout: post.hbs
 date: 2015-01-28T00:00:00.000Z
 ---
 

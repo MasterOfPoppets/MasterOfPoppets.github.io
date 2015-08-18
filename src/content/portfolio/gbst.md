@@ -1,6 +1,6 @@
 ---
 title: GBST Syn~ Web Framework
-template: page.hbt
+layout: page.hbs
 ---
 
 GBST is a provider of software and services to the global financial services industry. Their current offering is Syn~, a highly configurable and dynamic platform for Straight-Through Processing of high volumes of financial transactions.

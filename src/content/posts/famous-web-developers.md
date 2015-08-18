@@ -1,6 +1,6 @@
 ---
 title: Famo.us and Thames Valley Web Developers
-template: post.hbt
+layout: post.hbs
 date: 2014-12-19T00:00:00.000Z
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Streams and User Interaction
-template: post.hbt
+layout: post.hbs
 draft: true
 date: 2015-01-28T00:00:00.000Z
 ---

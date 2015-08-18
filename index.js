@@ -6,7 +6,7 @@ var Metalsmith = require('metalsmith'),
   excerpts = require('metalsmith-excerpts'),
   permalinks = require('metalsmith-permalinks'),
   less = require('metalsmith-less'),
-  templates = require('metalsmith-templates'),
+  layouts = require('metalsmith-layouts'),
   ignore = require('metalsmith-ignore'),
   msIf = require('metalsmith-if'),
   serve = require('metalsmith-serve'),
@@ -25,7 +25,7 @@ Metalsmith(__dirname)
   .use(excerpts())
   .use(permalinks(require('./config/permalinks')))
   .use(less(require('./config/less')))
-  .use(templates(require('./config/templates')))
+  .use(layouts(require('./config/layouts')))
   .use(ignore(require('./config/ignore')))
   .use(msIf(siteConfig.isDev, serve(require('./config/serve'))))
   .use(msIf(siteConfig.isDev, watch(require('./config/watch'))))
