@@ -1,35 +1,37 @@
-var Metalsmith = require('metalsmith'),
-  Handlebars = require('handlebars'),
-  drafts = require('metalsmith-drafts'),
-  collections = require('metalsmith-collections'),
-  markdown = require('metalsmith-markdown'),
-  excerpts = require('metalsmith-excerpts'),
-  permalinks = require('metalsmith-permalinks'),
-  less = require('metalsmith-less'),
-  layouts = require('metalsmith-layouts'),
-  ignore = require('metalsmith-ignore'),
-  msIf = require('metalsmith-if'),
-  serve = require('metalsmith-serve'),
-  watch = require('metalsmith-watch'),
-  siteConfig = require('./config/site')(process.argv)
+var metalsmith = require('metalsmith');
+var Handlebars = require('handlebars');
+var drafts = require('metalsmith-drafts');
+var collections = require('metalsmith-collections');
+var markdown = require('metalsmith-markdown');
+var excerpts = require('metalsmith-excerpts');
+var permalinks = require('metalsmith-permalinks');
+var less = require('metalsmith-less');
+var layouts = require('metalsmith-layouts');
+var ignore = require('metalsmith-ignore');
+var msIf = require('metalsmith-if');
+var serve = require('metalsmith-serve');
+var watch = require('metalsmith-watch');
+var siteConfig = require('./config/site')(process.argv);
 
 Handlebars.registerHelper('link', function (path) {
-  return siteConfig.baseUrl + path
-})
+	return siteConfig.baseUrl + path;
+});
 
-Metalsmith(__dirname)
-  .source('./src')
-  .use(drafts())
-  .use(collections(require('./config/collections')))
-  .use(markdown())
-  .use(excerpts())
-  .use(permalinks(require('./config/permalinks')))
-  .use(less(require('./config/less')))
-  .use(layouts(require('./config/layouts')))
-  .use(ignore(require('./config/ignore')))
-  .use(msIf(siteConfig.isDev, serve(require('./config/serve'))))
-  .use(msIf(siteConfig.isDev, watch(require('./config/watch'))))
-  .destination('./build')
-  .build(function (err) {
-    if (err) throw err
-  })
+metalsmith(__dirname)
+	.source('./src')
+	.use(drafts())
+	.use(collections(require('./config/collections')))
+	.use(markdown())
+	.use(excerpts())
+	.use(permalinks(require('./config/permalinks')))
+	.use(less(require('./config/less')))
+	.use(layouts(require('./config/layouts')))
+	.use(ignore(require('./config/ignore')))
+	.use(msIf(siteConfig.isDev, serve(require('./config/serve'))))
+	.use(msIf(siteConfig.isDev, watch(require('./config/watch'))))
+	.destination('./build')
+	.build(function (err) {
+		if (err) {
+			throw err;
+		}
+	});
