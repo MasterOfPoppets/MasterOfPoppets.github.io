@@ -1,29 +1,23 @@
 @import "theme";
 .splash-container {
-  background: @black none repeat scroll 0 0;
-  height: 88%;
+  background: @white none repeat scroll 0 0;
+  height: 100%;
   position: fixed;
   width: 100%;
   z-index: 1;
 }
 .splash {
-  color: @white;
+  color: @black;
   height: 50%;
-  left: 25%;
   margin-left: auto;
   margin-right: auto;
-  position: absolute;
   text-align: center;
-  top: 100px;
-  width: 50%;
 }
 .splash-head {
-  border: 3px solid @white;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  font-size: 250%;
+  font: 150px "Italiana", sans-serif;
   font-weight: 100;
-  padding: 1em;
-  text-transform: uppercase;
+  text-transform: lowercase;
+  &:first-letter {
+    color: limegreen;
+  }
 }

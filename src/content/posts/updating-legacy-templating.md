@@ -29,6 +29,6 @@ Ignoring the fact that these tags are not valid, initial attempts to make the co
 
 One of the first things I did when I started on the project was to introduce the use of a build tool (initially Grunt but I soon saw the light that is [Gulp](http://gulpjs.com/)) to automate repetitive processing and eradicate a lot of the pain that was being experienced when dealing with the legacy code and html.
 
-We quickly made use of [gulp-inject](https://github.com/klei/gulp-inject) to avoid having to manually edit template files whenever we required a new library such as Underscore or a new Angular module during development.
+We quickly made use of [gulp-inject](https://github.com/klei/gulp-inject) to avoid having to manually edit template files whenever we required a new library such as lodash or added a new Angular module during development.
 
 But the templating engine remained.
