@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "deploy": "npm start -- --production && cd build && git init . && git add . && git commit -m \"Deploy\" && git push \"https://github.com/MasterOfPoppets/garethhughes.io.git\" master:gh-pages --force && rimraf .git"
+    "deploy": "npm start -- --production"
   },
   "repository": {
     "type": "git",
