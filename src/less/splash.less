@@ -1,6 +1,6 @@
 @import "theme";
 .splash-container {
-  background: @white none repeat scroll 0 0;
+  background: @background none repeat scroll 0 0;
   height: 100%;
   position: fixed;
   width: 100%;
@@ -11,13 +11,16 @@
   height: 50%;
   margin-left: auto;
   margin-right: auto;
+  position: absolute;
   text-align: center;
+  top: 150px;
+  width: 100%;
 }
 .splash-head {
   font: 150px "Italiana", sans-serif;
   font-weight: 100;
   text-transform: lowercase;
   &:first-letter {
-    color: limegreen;
+    color: @quantum;
   }
 }
