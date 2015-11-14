@@ -4,9 +4,9 @@
   "description": "Quantum site hosted on Github Pages",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "exit 0",
     "start": "node index.js",
-    "deploy": "npm start -- --production"
+    "deploy": "./deploy-ghpages.sh"
   },
   "repository": {
     "type": "git",
