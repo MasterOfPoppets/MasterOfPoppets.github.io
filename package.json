@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "deploy": "npm start -- --production"
+    "deploy": "npm start -- --production && git subtree --prefix build origin gh-pages"
   },
   "repository": {
     "type": "git",
