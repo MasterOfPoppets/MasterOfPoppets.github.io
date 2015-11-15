@@ -1,10 +1,15 @@
-<article>
+{{> head}}
+{{> home-header}}
+
+<article class="content">
   <ul>
     {{#each collections.posts}}
       <li>
         <h3>{{this.title}}</h3>
-        <article>{{{this.contents}}}</article>
+        <article>{{{this.excerpt}}}</article>
       </li>
     {{/each}}
   </ul>
 </article>
+
+{{> footer}}

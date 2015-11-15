@@ -1,0 +1,21 @@
+@import "mixins";
+@import "theme";
+.content {
+  margin: 70px auto auto;
+  max-width: 768px;
+
+  h1 {
+    .is-centre();
+    color: #666;
+  }
+
+  p {
+    font-size: 1.125em;
+  }
+
+  img {
+    border: 1px solid @black;
+    float: left;
+    margin: 0 10px 10px 0;
+  }
+}
