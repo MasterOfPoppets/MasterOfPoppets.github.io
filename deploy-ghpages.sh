@@ -1,7 +1,7 @@
 #!/bin/bash
 rm -rf build || exit 0;
 mkdir build;
-node index.js -p
+npm start -- -p
 ( cd build
  git init
  git config user.name "Travis-CI"
