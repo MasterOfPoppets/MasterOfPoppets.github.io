@@ -3,7 +3,7 @@ var prod = {
     isDev: false
   },
   dev = {
-    baseUrl: 'http://localhost:8080/',
+    baseUrl: 'http://localhost:3000/',
     isDev: true
   }
 

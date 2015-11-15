@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "exit 0",
-    "start": "node index.js"
+    "start": "node --harmony index.js"
   },
   "repository": {
     "type": "git",
@@ -21,20 +21,19 @@
   },
   "homepage": "https://github.com/MasterOfPoppets/MasterOfPoppets.github.io",
   "devDependencies": {
-    "handlebars": "^3.0.3",
-    "metalsmith": "^1.7.0",
+    "handlebars": "^4.0.4",
+    "metalsmith": "^2.1.0",
     "metalsmith-collections": "^0.7.0",
     "metalsmith-drafts": "0.0.1",
     "metalsmith-excerpts": "^1.0.0",
-    "metalsmith-if": "0.0.1",
+    "metalsmith-express": "^0.1.0",
+    "metalsmith-if": "0.1.1",
     "metalsmith-ignore": "^0.1.2",
-    "metalsmith-layouts": "^1.4.0",
+    "metalsmith-layouts": "^1.4.2",
     "metalsmith-less": "^2.0.0",
     "metalsmith-markdown": "^0.2.1",
     "metalsmith-permalinks": "^0.4.0",
-    "metalsmith-serve": "0.0.3",
     "metalsmith-templates": "^0.7.0",
-    "metalsmith-watch": "^1.0.1",
-    "rimraf": "^2.4.2"
+    "metalsmith-watch": "^1.0.1"
   }
 }

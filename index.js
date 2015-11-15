@@ -9,7 +9,7 @@ var less = require('metalsmith-less');
 var layouts = require('metalsmith-layouts');
 var ignore = require('metalsmith-ignore');
 var msIf = require('metalsmith-if');
-var serve = require('metalsmith-serve');
+var express = require('metalsmith-express')
 var watch = require('metalsmith-watch');
 var siteConfig = require('./config/site')(process.argv);
 
@@ -27,7 +27,7 @@ metalsmith(__dirname)
 	.use(less(require('./config/less')))
 	.use(layouts(require('./config/layouts')))
 	.use(ignore(require('./config/ignore')))
-	.use(msIf(siteConfig.isDev, serve(require('./config/serve'))))
+	.use(msIf(siteConfig.isDev, express()))
 	.use(msIf(siteConfig.isDev, watch(require('./config/watch'))))
 	.destination('./build')
 	.build(function (err) {
