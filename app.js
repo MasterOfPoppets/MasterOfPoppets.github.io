@@ -1,1 +1,3 @@
-console.log('Test');
+import {posts} from './build/collections';
+
+console.log(posts);

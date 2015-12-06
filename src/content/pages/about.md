@@ -21,7 +21,7 @@ Gareth graduated from the University of Reading in 2006 with a MEng in Computer 
 
 After university he quickly got a job with [GBST](http://gbst.com/) where his solid technical skills were quickly
 recognised and he was tasked with dragging their existing web application into the 21st Century. Eventually, after 8
-years and lots of cups of coffee, it was time to move on. So with a solid framework in place and a worth successor
+years and lots of cups of coffee, it was time to move on. So with a solid framework in place and a worthy successor
 trained up, he decided to take a short career break to evaluate options and decide on where the future lay.
 
 It was then that he discovered the wonderful world of full stack Javascript.

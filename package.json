@@ -38,6 +38,7 @@
     "metalsmith-permalinks": "^0.4.0",
     "metalsmith-templates": "^0.7.0",
     "metalsmith-watch": "^1.0.1",
+    "ramda": "^0.18.0",
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
     "webpack": "^1.12.9"

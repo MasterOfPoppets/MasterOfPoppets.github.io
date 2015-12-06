@@ -1,5 +1,6 @@
 var metalsmith = require('metalsmith');
 var Handlebars = require('handlebars');
+var R = require('ramda');
 var drafts = require('metalsmith-drafts');
 var collections = require('metalsmith-collections');
 var markdown = require('metalsmith-markdown');
@@ -30,10 +31,28 @@ Handlebars.registerHelper('link', function (path) {
 	return siteConfig.baseUrl + path;
 });
 
+var getTitles = R.compose(JSON.stringify, R.map(R.pick(['title'])));
+
+var collectionsToJS = function () {
+	return function (files, metalsmith, done) {
+		var metadata = metalsmith.metadata();
+		for (var file in files) {
+			var data = files[file];
+			if (data.getCollections) {
+				var contents = data.contents.toString();
+				contents = R.replace(/myPosts/, getTitles(metadata.collections.posts), contents);
+				data.contents = new Buffer(contents);
+			}
+		}
+		done();
+	};
+};
+
 metalsmith(__dirname)
 	.source('./src')
 	.use(drafts())
 	.use(collections(require('./config/collections')))
+	.use(collectionsToJS())
 	.use(markdown())
 	.use(excerpts())
 	.use(permalinks(require('./config/permalinks')))
