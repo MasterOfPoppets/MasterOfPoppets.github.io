@@ -31,7 +31,8 @@ Handlebars.registerHelper('link', function (path) {
 	return siteConfig.baseUrl + path;
 });
 
-var getPosts = R.compose(JSON.stringify, R.map(R.pick(['title', 'path'])));
+// getCollectionInfo :: [Object] -> String
+var getCollectionInfo = R.compose(JSON.stringify, R.map(R.pick(['title', 'path'])));
 
 var collectionsToJS = function () {
 	return function (files, metalsmith, done) {
@@ -40,8 +41,8 @@ var collectionsToJS = function () {
 			var data = files[file];
 			if (data.getCollections) {
 				var contents = data.contents.toString();
-				contents = R.replace(/myCaseStudies/, getPosts(metadata.collections.caseStudies), contents);
-				contents = R.replace(/myPosts/, getPosts(metadata.collections.posts), contents);
+				contents = R.replace(/myCaseStudies/, getCollectionInfo(metadata.collections.caseStudies), contents);
+				contents = R.replace(/myPosts/, getCollectionInfo(metadata.collections.posts), contents);
 				data.contents = new Buffer(contents);
 			}
 		}
