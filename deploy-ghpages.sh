@@ -2,6 +2,7 @@
 rm -rf build || exit 0;
 mkdir build;
 npm start -- -p
+webpack -p
 ( cd build
  git init
  git config user.name "Travis-CI"
