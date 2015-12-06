@@ -5,5 +5,6 @@ getCollections: true
 ---
 
 module.exports = {
+	caseStudies: myCaseStudies,
 	posts: myPosts
 }

@@ -31,7 +31,7 @@ Handlebars.registerHelper('link', function (path) {
 	return siteConfig.baseUrl + path;
 });
 
-var getTitles = R.compose(JSON.stringify, R.map(R.pick(['title'])));
+var getPosts = R.compose(JSON.stringify, R.map(R.pick(['title', 'path'])));
 
 var collectionsToJS = function () {
 	return function (files, metalsmith, done) {
@@ -40,7 +40,8 @@ var collectionsToJS = function () {
 			var data = files[file];
 			if (data.getCollections) {
 				var contents = data.contents.toString();
-				contents = R.replace(/myPosts/, getTitles(metadata.collections.posts), contents);
+				contents = R.replace(/myCaseStudies/, getPosts(metadata.collections.caseStudies), contents);
+				contents = R.replace(/myPosts/, getPosts(metadata.collections.posts), contents);
 				data.contents = new Buffer(contents);
 			}
 		}
@@ -52,10 +53,10 @@ metalsmith(__dirname)
 	.source('./src')
 	.use(drafts())
 	.use(collections(require('./config/collections')))
-	.use(collectionsToJS())
 	.use(markdown())
 	.use(excerpts())
 	.use(permalinks(require('./config/permalinks')))
+	.use(collectionsToJS())
 	.use(less(require('./config/less')))
 	.use(layouts(require('./config/layouts')))
 	.use(ignore(require('./config/ignore')))

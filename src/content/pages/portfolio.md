@@ -1,6 +1,4 @@
 ---
 title: Portfolio
-layout: page.hbs
+layout: work.hbs
 ---
-
-Workz
