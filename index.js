@@ -41,8 +41,8 @@ var collectionsToJS = function () {
 			var data = files[file];
 			if (data.getCollections) {
 				var contents = data.contents.toString();
-				contents = R.replace(/myCaseStudies/, getCollectionInfo(metadata.collections.caseStudies), contents);
-				contents = R.replace(/myPosts/, getCollectionInfo(metadata.collections.posts), contents);
+				contents = R.replace(/myCaseStudies/, getCollectionInfo(metadata.collections.portfolio), contents);
+				contents = R.replace(/myPosts/, getCollectionInfo(metadata.collections.blog), contents);
 				data.contents = new Buffer(contents);
 			}
 		}
@@ -56,7 +56,7 @@ metalsmith(__dirname)
 	.use(collections(require('./config/collections')))
 	.use(markdown())
 	.use(excerpts())
-	.use(permalinks(require('./config/permalinks')))
+	.use(permalinks(':collection/:title'))
 	.use(collectionsToJS())
 	.use(less(require('./config/less')))
 	.use(layouts(require('./config/layouts')))

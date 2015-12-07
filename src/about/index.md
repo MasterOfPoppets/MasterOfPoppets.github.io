@@ -1,6 +1,7 @@
 ---
 title: About
 layout: page.hbs
+permalink: false
 ---
 
 # About
