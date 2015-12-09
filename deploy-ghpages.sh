@@ -1,8 +1,9 @@
 #!/bin/bash
 rm -rf build || exit 0;
 mkdir build;
-npm start -- -p
-webpack -p
+npm start -- -p;
+webpack -p;
+cp CNAME build/CNAME;
 ( cd build
  git init
  git config user.name "Travis-CI"

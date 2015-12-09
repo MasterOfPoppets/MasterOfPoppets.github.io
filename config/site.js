@@ -1,5 +1,5 @@
 var prod = {
-    baseUrl: 'http://masterofpoppets.github.io/garethhughes.io/',
+    baseUrl: 'http://www.quantumweb.io/',
     isDev: false
   },
   dev = {
