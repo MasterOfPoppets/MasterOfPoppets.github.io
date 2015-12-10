@@ -10,7 +10,7 @@ var less = require('metalsmith-less');
 var layouts = require('metalsmith-layouts');
 var ignore = require('metalsmith-ignore');
 var msIf = require('metalsmith-if');
-var express = require('metalsmith-express')
+var express = require('metalsmith-express');
 var watch = require('metalsmith-watch');
 var siteConfig = require('./config/site')(process.argv);
 
@@ -32,7 +32,7 @@ Handlebars.registerHelper('link', function (path) {
 });
 
 // getCollectionInfo :: [Object] -> String
-var getCollectionInfo = R.compose(JSON.stringify, R.map(R.pick(['title', 'path'])));
+var getCollectionInfo = R.compose(JSON.stringify, R.map(R.pick(['title', 'path'])), R.filter(R.propEq('draft')));
 
 var collectionsToJS = function () {
 	return function (files, metalsmith, done) {
@@ -41,8 +41,8 @@ var collectionsToJS = function () {
 			var data = files[file];
 			if (data.getCollections) {
 				var contents = data.contents.toString();
-				contents = R.replace(/myCaseStudies/, getCollectionInfo(metadata.collections.portfolio), contents);
-				contents = R.replace(/myPosts/, getCollectionInfo(metadata.collections.blog), contents);
+				contents = R.replace('{blog}', getCollectionInfo(metadata.collections.blog), contents);
+				contents = R.replace('{portfolio}', getCollectionInfo(metadata.collections.portfolio), contents);
 				data.contents = new Buffer(contents);
 			}
 		}

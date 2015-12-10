@@ -5,6 +5,6 @@ getCollections: true
 ---
 
 module.exports = {
-	caseStudies: myCaseStudies,
-	posts: myPosts
+	blog: {blog},
+	portfolio: {portfolio}
 }
