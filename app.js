@@ -2,19 +2,15 @@ import React, {Component} from 'react';
 import {render} from 'react-dom';
 import {portfolio} from './build/collections';
 
-const caseStudy = ({title, path}) => {
+const caseStudy = ({title, path, tags}) => {
 		var url = path.split('/')[1];
-		return (<li key={title}><a href={url}>{title}</a></li>);
+		return (<li key={title}><a href={url}>{title} - {tags}</a></li>);
 };
 
-class Welcome extends Component {
-	render() {
-		return (
-			<ul>
-				{this.props.portfolio.map(caseStudy)}
-			</ul>
-		);
-	}
-}
+const Portfolio = ({portfolio}) => (
+	<ul>
+		{portfolio.map(caseStudy)}
+	</ul>
+);
 
-render(<Welcome portfolio={portfolio}/>, document.getElementById('react'));
+render(<Portfolio portfolio={portfolio}/>, document.getElementById('react'));

@@ -31,8 +31,14 @@ Handlebars.registerHelper('link', function (path) {
 	return siteConfig.baseUrl + path;
 });
 
+// rejectDrafts :: [Object] -> [Object]
+var rejectDrafts = R.reject(R.propEq('draft', true));
+
+// metadataInfo :: Object -> Object
+var metadataInfo = R.pick(['title', 'path', 'tags']);
+
 // getCollectionInfo :: [Object] -> String
-var getCollectionInfo = R.compose(JSON.stringify, R.map(R.pick(['title', 'path'])), R.filter(R.propEq('draft')));
+var getCollectionInfo = R.compose(JSON.stringify, R.map(metadataInfo), rejectDrafts);
 
 var collectionsToJS = function () {
 	return function (files, metalsmith, done) {
