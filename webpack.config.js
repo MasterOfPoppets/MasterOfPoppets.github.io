@@ -10,10 +10,10 @@ var commonsPlugin = new webpack.optimize.CommonsChunkPlugin({
 module.exports = {
 	entry: {
 		vendor: ['react', 'react-dom'],
-		app: './app'
+		portfolio: './src/portfolio/index'
 	},
 	output: {
-		filename: 'bundle.js',
+		filename: '[name].js',
 		path: path.join(__dirname, 'build/js')
 	},
 	plugins: [commonsPlugin],

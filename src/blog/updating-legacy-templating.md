@@ -1,6 +1,7 @@
 ---
 title: Updating a legacy templating solution
-template: post.hbt
+collection: blog
+template: post.hbs
 draft: true
 date: 2015-08-26
 ---

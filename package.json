@@ -4,7 +4,8 @@
   "description": "Quantum site hosted on Github Pages",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "webpack": "webpack --watch"
   },
   "repository": {
     "type": "git",

@@ -1,5 +1,6 @@
 ---
 title: The Performance Window Group
+collection: portfolio
 draft: true
 layout: page.hbs
 tags: Angular, Node, Full-Stack
@@ -12,5 +13,3 @@ requirements along the way, including:
 
 *   Improve the ability to make timely changes to the system
 *   Better embed dealers blah blah blah
-
-They have a legacy system written in Perl and hacked together by Perl "developers".

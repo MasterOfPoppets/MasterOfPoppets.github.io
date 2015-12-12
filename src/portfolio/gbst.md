@@ -1,6 +1,8 @@
 ---
 title: GBST Syn~ Web Framework
+collection: portfolio
 layout: page.hbs
+logo: http://res.cloudinary.com/gurrkin/image/upload/b_rgb:193866,c_pad,h_200,w_435/v1422541316/portfolio/gbst-syn/syn_logo.png
 tags: Google Web Toolkit, Java, Full-Stack
 ---
 
