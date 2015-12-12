@@ -4,11 +4,17 @@ import {portfolio} from '../../build/collections';
 
 const PortfolioItem = ({title, path, tags, logo}) => {
 	var url = path.split('/')[1];
+	var style = {
+		backgroundColor: '#' + logo.background
+	};
+
+	console.log(style);
+
 	return (
 		<li className="col-xs-6 portfolio-item" key={title}>
 			<a href={url}>
-				<div className="portfolio-item-link">
-					<img src={logo} alt="Portfolio logo"/>
+				<div className="portfolio-item-link" style={style}>
+					<img src={logo.img} alt="Portfolio logo"/>
 				</div>
 			</a>
 			<div className="is-centre">{tags}</div>
