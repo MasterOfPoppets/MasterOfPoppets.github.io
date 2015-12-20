@@ -1,6 +1,5 @@
 ---
 title: The Performance Window Group
-draft: false
 collection: portfolio
 layout: page.hbs
 logo:

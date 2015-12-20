@@ -3,8 +3,8 @@ import {render} from 'react-dom';
 import {portfolio} from '../../build/collections';
 
 const PortfolioItem = ({title, path, tags, logo}) => {
-	var url = path.split('/')[1];
-	var style = {
+	const url = path.split('/')[1];
+	const style = {
 		backgroundColor: logo.background
 	};
 
@@ -20,10 +20,16 @@ const PortfolioItem = ({title, path, tags, logo}) => {
 	);
 };
 
-const Portfolio = ({portfolio}) => (
-	<ul className="row">
-		{portfolio.map(PortfolioItem)}
-	</ul>
-);
+const Portfolio = ({portfolio}) => {
+	const portfolioStyle = {
+		padding: 0
+	};
+
+	return (
+		<ul className="row" style={portfolioStyle}>
+			{portfolio.map(PortfolioItem)}
+		</ul>
+	);
+};
 
 render(<Portfolio portfolio={portfolio}/>, document.getElementById('react'));
