@@ -13,9 +13,10 @@ applications to fulfil your business requirements. Additionally, by making use o
 available, as well understanding current design best practices and the importance of clean coding, we can ensure that 
 your new application is easier to maintain.
 
-## Gareth Hughes
+### Gareth Hughes
 
-![Gareth Hughes](http://res.cloudinary.com/gurrkin/image/upload/bo_1px_solid_rgb:000,c_scale,q_100,r_0,w_203/v1447597885/gareth_tnhvg5.png)
+<img src="http://res.cloudinary.com/gurrkin/image/upload/bo_1px_solid_rgb:000,c_scale,q_100,r_0,w_203/v1447597885/gareth_tnhvg5.png"
+    alt="Gareth Hughes" class="img-responsive img-wrapped-left">
 
 Having been obsessed with computers from a young age (partly the fault of the [Why-Bird](https://en.wikipedia.org/wiki/Playdays)),
 Gareth graduated from the University of Reading in 2006 with a MEng in Computer Science. 
@@ -28,8 +29,4 @@ trained up, he decided to take a short career break to evaluate options and deci
 It was then that he discovered the wonderful world of full stack Javascript.
 
 After immersing himself for several months in the myriad of new frameworks, tools and other assorted technologies now
-available he decided to establish Quantum Web Development Ltd. and begin a new life contracting in this exciting area.
-
-His first contract role was for [The Performance Window Group](http://www.thepwgroup.co.uk/) where he was chiefly
-responsible for the creation of a robust new framework in AngularJS, as well as using his knowledge of software
-architecture and design patterns to bring a modicum of clarity to the existing back-end.
+available he decided to establish Quantum Web Development Ltd. and begin a new life contracting in this exciting area...

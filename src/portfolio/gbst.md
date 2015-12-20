@@ -4,9 +4,11 @@ collection: portfolio
 layout: page.hbs
 logo: 
     img: http://res.cloudinary.com/gurrkin/image/upload/v1422541316/portfolio/gbst-syn/syn_logo.png
-    background: 193866
+    background: hsl(216, 61%, 25%)
 tags: Google Web Toolkit, Java, Full-Stack
 ---
+
+# GBST Syn~ Web Framework
 
 GBST is a provider of software and services to the global financial services industry. Their current offering is Syn~, a
 highly configurable and dynamic platform for Straight-Through Processing of high volumes of financial transactions.
@@ -15,7 +17,8 @@ I joined GBST as a software developer as part of their Graduate scheme. In 2008 
 I was promoted to design and develop a new web framework for the product. My continued development in this area led to a
 promotion to Web Architect in 2011 and I also managed a small team of developers.
 
-![Syn Trade Details screen](http://res.cloudinary.com/gurrkin/image/upload/v1422541322/portfolio/gbst-syn/syn_trade_details.png)
+<img src="http://res.cloudinary.com/gurrkin/image/upload/v1422541322/portfolio/gbst-syn/syn_trade_details.png"
+    alt="Syn Trade Details Screen" class="img-responsive">
 
 The team decided that in order to build the framework, we would use    <a href='http://www.gwtproject.org/'>Google Web
 Toolkit</a>   as it would enable other developers to program in Java, a language that they were more familiar with than
@@ -32,7 +35,8 @@ simplest level, not care about what widget they needed to use to represent a pie
 generic widget to a data field. The framework would then create the correct widget on the screen, based on factors such
 as the type, whether the object is being edited and whether the user has the ability to edit that specific piece of data.
 
-![Syn Trade Capture screen](http://res.cloudinary.com/gurrkin/image/upload/v1422541323/portfolio/gbst-syn/syn_trade_capture.png)
+<img src="http://res.cloudinary.com/gurrkin/image/upload/v1422541323/portfolio/gbst-syn/syn_trade_capture.png" 
+    alt="Syn Trade Capture Screen" class="img-responsive">
 
 I felt that the previous version of the GBST web offering offered too much freedom to developers working on screens and
 this resulted in an application which often looked vastly different from one screen to the next. Layouts were my
@@ -43,7 +47,8 @@ A layout represented a series of slots that widgets or groups of widgets could b
 more cohesive design across the whole application, without individual screen developers having to cross-reference many
 screens to check that what they were making matched the existing screens.
 
-![Syn SSI Workflow screen](http://res.cloudinary.com/gurrkin/image/upload/v1422541319/portfolio/gbst-syn/syn_workflow.png)
+<img src="http://res.cloudinary.com/gurrkin/image/upload/v1422541319/portfolio/gbst-syn/syn_workflow.png"
+    alt="Syn SSI Workflow Screen" class="img-responsive">
 
 Of course, in order to provide such a rich and functional application, the back-end server needs to be great. GWT uses
 AJAX via a wrapper called RPC. By using GWT RPC I was able to create services that allowed two-way communication between

@@ -1,14 +1,17 @@
-@import "mixins";
 @import "theme";
 .container {
   h1 {
-    .is-centre();
     color: #666;
+    margin-bottom: 50px;
+    text-align: center;
   }
+}
 
-  img {
-    .img-responsive();
-    float: left;
-    margin: 0 10px 10px 0;
-  }
+.img-half {
+  width: 50%;
+}
+
+.img-wrapped-left {
+  float: left;
+  margin: 0 10px 10px 0;
 }
