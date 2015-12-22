@@ -13,6 +13,8 @@ var msIf = require('metalsmith-if');
 var express = require('metalsmith-express');
 var watch = require('metalsmith-watch');
 var siteConfig = require('./config/site')(process.argv);
+var webpack = require('webpack');
+var webpackConfig = require('./webpack.config');
 
 var expressConfig = {
 	livereload: siteConfig.isDev
@@ -56,6 +58,16 @@ var collectionsToJS = function () {
 	};
 };
 
+var webpackWatch = function () {
+	var compiler = webpack(webpackConfig);
+	compiler.watch({}, function (err, stats) {
+		if (err) {
+			throw err;
+		}
+		console.log(stats.toString({chunkModules: false, colors: true}));
+	});
+};
+
 metalsmith(__dirname)
 	.source('./src')
 	.use(drafts())
@@ -73,5 +85,8 @@ metalsmith(__dirname)
 	.build(function (err) {
 		if (err) {
 			throw err;
+		}
+		if (siteConfig.isDev) {
+			webpackWatch();
 		}
 	});

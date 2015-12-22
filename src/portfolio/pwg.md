@@ -54,7 +54,7 @@ engine would be called to keep the image up to date according to the various opt
 gave customers the ability to get a good idea of what their product would look like, but also for the factory that made
 the products - these drawings formed the technical blueprint of what would actually be made.
 
-<img src="http://res.cloudinary.com/gurrkin/image/upload/v1450634502/portfolio/pwg/expanded_selector.png"
-    alt="PWG Sash Window Quoting Tool" class="img-responsive">
+<img src="http://res.cloudinary.com/gurrkin/image/upload/v1450781294/portfolio/pwg/sash_window.png"
+    alt="PWG Sash Window Drawing" class="img-responsive img-half center-block">
     
 Performance wise it left a lot to be desired.

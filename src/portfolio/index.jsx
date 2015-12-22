@@ -21,12 +21,8 @@ const PortfolioItem = ({title, path, tags, logo}) => {
 };
 
 const Portfolio = ({portfolio}) => {
-	const portfolioStyle = {
-		padding: 0
-	};
-
 	return (
-		<ul className="row" style={portfolioStyle}>
+		<ul className="row portfolio">
 			{portfolio.map(PortfolioItem)}
 		</ul>
 	);
