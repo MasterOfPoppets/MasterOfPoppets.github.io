@@ -3,5 +3,8 @@ module.exports = {
     sortBy: 'date',
     reverse: true
   },
-  portfolio: {}
+  portfolio: {
+    sortBy: 'date',
+    reverse: true
+  }
 };

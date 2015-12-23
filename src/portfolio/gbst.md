@@ -6,9 +6,8 @@ logo:
     img: http://res.cloudinary.com/gurrkin/image/upload/c_scale,h_199/v1422541316/portfolio/gbst-syn/syn_logo.png
     background: hsl(216, 61%, 25%)
 tags: Google Web Toolkit, Java, Full-Stack
+date: 2013-12-31
 ---
-
-# GBST Syn~ Web Framework
 
 GBST is a provider of software and services to the global financial services industry. Their current offering is Syn~, a
 highly configurable and dynamic platform for Straight-Through Processing of high volumes of financial transactions.

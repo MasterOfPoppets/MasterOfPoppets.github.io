@@ -4,8 +4,6 @@ layout: page.hbs
 permalink: false
 ---
 
-# About
-
 Quantum Web Development Ltd. specialise in full stack web development and was established by Gareth Hughes in 2015.
 
 Utilising the latest technologies such as AngularJS, React, NodeJS and MongoDB we aim to help you build sophisticated

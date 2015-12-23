@@ -1,8 +1,19 @@
 {{> head}}
 {{> home-header}}
 
-<div class="container">
-  {{{contents}}}
+<div class="portfolio-content">
+  <div class="jumbotron">
+    <div class="container">
+      <h1>{{this.title}}</h1>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-8 col-md-offset-2">
+        {{{contents}}}
+      </div>
+    </div>
+  </div>
 </div>
 
 {{> footer}}
