@@ -5,6 +5,7 @@ layout: page.hbs
 logo: 
     img: http://res.cloudinary.com/gurrkin/image/upload/c_scale,h_199/v1422541316/portfolio/gbst-syn/syn_logo.png
     background: hsl(216, 61%, 25%)
+    colour: hsl(0, 20%, 93%)
 tags: Google Web Toolkit, Java, Full-Stack
 date: 2013-12-31
 ---

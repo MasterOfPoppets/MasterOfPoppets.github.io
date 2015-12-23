@@ -5,11 +5,12 @@ layout: page.hbs
 logo:
     img: http://res.cloudinary.com/gurrkin/image/upload/v1450612507/portfolio/pwg/pwg_logo.png
     background: hsl(63, 64%, 33%)
+    colour: hsl(0, 30%, 93%)
 tags: Angular, Node, Full-Stack
 date: 2015-12-21
 ---
 
-### The Problem
+### The challenge
 
 The Performance Window Group (PWG) make timber windows and doors for both private customers and trade dealers.
 
@@ -23,7 +24,7 @@ With Aperture starting life written in jQuery hooked up to a Perl back-end, the 
 analyse the various frameworks available and made a decision to switch to using Angular - bringing Quantum Web
 Development on board to facilitate this transition.
 
-### The Solution
+### The solution
 
 By using Angular to create a library of reusable, generic components and a framework to interact with the server we were
 able to move the product away from the very un-[DRY](https://en.wikipedia.org/wiki/Don't_repeat_yourself) approach that
@@ -65,7 +66,7 @@ way.
 We were able to further improve the user experience and the overall consistency of the application by adding an optional
 search field to all similar components.
 
-### Barmy Business Logic
+### Barmy business logic
 
 The USP of the existing Aperture application was its product rendering engine. As a quote was modified by the user, the
 engine would be called to keep the image up to date according to the various options chosen. This was important as it 
@@ -86,7 +87,7 @@ system.
 
 Something drastic was needed.
 
-### Welcome to the (State) Machine
+### Welcome to the (state) machine
 
 Our solution to these problems was to create a single source of truth for the buisness rules. Any proposed change to the
 current product would be sent to this "State machine" which would be solely responsible for calculating any new side
