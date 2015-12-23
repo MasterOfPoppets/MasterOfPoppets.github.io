@@ -1,7 +1,7 @@
 ---
 title: A Brief Update
 collection: blog
-layout: post.hbs
+layout: page.hbs
 date: 2015-05-31T00:00:00.000Z
 ---
 

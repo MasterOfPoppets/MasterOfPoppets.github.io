@@ -1,7 +1,7 @@
 ---
 title: Blogging with Angular
 collection: blog
-layout: post.hbs
+layout: page.hbs
 date: 2015-01-28T00:00:00.000Z
 ---
 

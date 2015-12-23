@@ -9,7 +9,7 @@ const PortfolioItem = ({title, path, tags, logo}) => {
 	};
 
 	return (
-		<li className="col-xs-6 portfolio-item" key={title}>
+		<li className="col-xs-12 col-md-6 portfolio-item" key={title}>
 			<a href={url}>
 				<div className="portfolio-item-link" style={style}>
 					<img src={logo.img} alt="Portfolio logo" className="img-responsive center-block"/>

@@ -22,7 +22,7 @@ With Aperture starting life written in jQuery hooked up to a Perl back-end, the 
 analyse the various frameworks available and made a decision to switch to using Angular - bringing Quantum Web
 Development on board to facilitate this transition.
 
-### Transitioning to Angular
+### Adopting Angular
     
 Two challenges presented themselves almost immediately. Firstly, the team lacked much appreciation for user experience,
 especially with regard to the system being used on mobile devices. Secondly, the existing system was full to bursting of

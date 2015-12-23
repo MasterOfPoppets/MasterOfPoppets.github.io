@@ -1,7 +1,7 @@
 ---
 title: Markdown Blogging with Node.JS and Firebase
 collection: blog
-layout: post.hbs
+layout: page.hbs
 date: 2014-12-03T00:00:00.000Z
 ---
 

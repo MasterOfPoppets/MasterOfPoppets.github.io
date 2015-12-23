@@ -15,6 +15,8 @@ var watch = require('metalsmith-watch');
 var siteConfig = require('./config/site')(process.argv);
 var webpack = require('webpack');
 var webpackConfig = require('./webpack.config');
+var compiler = webpack(webpackConfig);
+var webpackWatcher;
 
 var expressConfig = {
 	livereload: siteConfig.isDev
@@ -59,8 +61,7 @@ var collectionsToJS = function () {
 };
 
 var webpackWatch = function () {
-	var compiler = webpack(webpackConfig);
-	compiler.watch({}, function (err, stats) {
+	webpackWatcher = compiler.watch({}, function (err, stats) {
 		if (err) {
 			throw err;
 		}
@@ -86,7 +87,7 @@ metalsmith(__dirname)
 		if (err) {
 			throw err;
 		}
-		if (siteConfig.isDev) {
+		if (siteConfig.isDev && !webpackWatcher) {
 			webpackWatch();
 		}
 	});

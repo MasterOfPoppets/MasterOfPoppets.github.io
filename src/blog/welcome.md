@@ -1,7 +1,7 @@
 ---
 title: 'Site Launch!'
 collection: blog
-layout: post.hbs
+layout: page.hbs
 date: 2014-11-22T00:00:00.000Z
 ---
 
