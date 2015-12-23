@@ -2,7 +2,6 @@
 rm -rf build || exit 0;
 mkdir build;
 npm start -- -p;
-webpack -p;
 cp CNAME build/CNAME;
 ( cd build
  git init

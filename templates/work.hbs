@@ -2,10 +2,18 @@
 {{> home-header}}
 
 <div class="container">
-  <div id="react"></div>
+  <ul>
+    {{#each collections.portfolio}}
+      <li class="col-xs-12 col-md-6 portfolio-item">
+        <a href="{{link this.path}}">
+          <div class="portfolio-item-link" style="background-color: {{this.logo.background}}">
+            <img src="{{this.logo.img}}" alt="Portfolio logo" class="img-responsive center-block"/>
+          </div>
+        </a>
+        <div class="is-centre">{{this.tags}}</div>
+      </li>
+    {{/each}}
+  </ul>
 </div>
-
-<script src="{{link "js/vendor.js"}}"></script>
-<script src="{{link "js/portfolio.js"}}"></script>
 
 {{> footer}}

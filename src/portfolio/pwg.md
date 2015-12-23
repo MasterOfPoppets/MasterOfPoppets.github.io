@@ -5,7 +5,7 @@ layout: page.hbs
 logo:
     img: http://res.cloudinary.com/gurrkin/image/upload/v1450612507/portfolio/pwg/pwg_logo.png
     background: hsl(63, 64%, 33%)
-    colour: hsl(0, 30%, 93%)
+    colour: hsl(0, 0%, 93%)
 tags: Angular, Node, Full-Stack
 date: 2015-12-21
 ---

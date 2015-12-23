@@ -1,6 +1,5 @@
 var metalsmith = require('metalsmith');
 var Handlebars = require('handlebars');
-var R = require('ramda');
 var drafts = require('metalsmith-drafts');
 var collections = require('metalsmith-collections');
 var markdown = require('metalsmith-markdown');
@@ -13,10 +12,6 @@ var msIf = require('metalsmith-if');
 var express = require('metalsmith-express');
 var watch = require('metalsmith-watch');
 var siteConfig = require('./config/site')(process.argv);
-var webpack = require('webpack');
-var webpackConfig = require('./webpack.config');
-var compiler = webpack(webpackConfig);
-var webpackWatcher;
 
 var expressConfig = {
 	livereload: siteConfig.isDev
@@ -35,40 +30,6 @@ Handlebars.registerHelper('link', function (path) {
 	return siteConfig.baseUrl + path;
 });
 
-// rejectDrafts :: [Object] -> [Object]
-var rejectDrafts = R.reject(R.propEq('draft', true));
-
-// metadataInfo :: Object -> Object
-var metadataInfo = R.pick(['title', 'path', 'tags', 'logo']);
-
-// getCollectionInfo :: [Object] -> String
-var getCollectionInfo = R.compose(JSON.stringify, R.map(metadataInfo), rejectDrafts);
-
-var collectionsToJS = function () {
-	return function (files, metalsmith, done) {
-		var metadata = metalsmith.metadata();
-		for (var file in files) {
-			var data = files[file];
-			if (data.getCollections) {
-				var contents = data.contents.toString();
-				contents = R.replace('{blog}', getCollectionInfo(metadata.collections.blog), contents);
-				contents = R.replace('{portfolio}', getCollectionInfo(metadata.collections.portfolio), contents);
-				data.contents = new Buffer(contents);
-			}
-		}
-		done();
-	};
-};
-
-var webpackWatch = function () {
-	webpackWatcher = compiler.watch({}, function (err, stats) {
-		if (err) {
-			throw err;
-		}
-		console.log(stats.toString({chunkModules: false, colors: true}));
-	});
-};
-
 metalsmith(__dirname)
 	.source('./src')
 	.use(drafts())
@@ -76,7 +37,6 @@ metalsmith(__dirname)
 	.use(markdown())
 	.use(excerpts())
 	.use(permalinks(':collection/:title'))
-	.use(collectionsToJS())
 	.use(less(require('./config/less')))
 	.use(layouts(require('./config/layouts')))
 	.use(ignore(require('./config/ignore')))
@@ -86,8 +46,5 @@ metalsmith(__dirname)
 	.build(function (err) {
 		if (err) {
 			throw err;
-		}
-		if (siteConfig.isDev && !webpackWatcher) {
-			webpackWatch();
 		}
 	});
