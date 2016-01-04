@@ -1,5 +1,5 @@
 ---
-title: GBST Syn~ Web Framework
+title: GBST Syn~
 collection: portfolio
 layout: page.hbs
 logo: 

@@ -32,7 +32,7 @@ had been taken previously.
 
 Integrating tools such as Gulp, ESLint and Wallaby into the development process allowed us to reduce the rampant code
 duplication and cut down on the number of errors and unprofessional javascript. Encouraging test-driven development also
-allowed us to help the team to create more robust but reusable code than previously.
+allowed us to help the team to create more robust and reusable code than before.
 
 Finally, by creating a dedicated new server, written in Node, for all the previously disparately located business rules,
 we were able to quickly increase the level of professionalism in the team's javascript. This ultimately benefit the 
@@ -66,7 +66,7 @@ way.
 We were able to further improve the user experience and the overall consistency of the application by adding an optional
 search field to all similar components.
 
-### Barmy business logic
+### Broken business logic
 
 The USP of the existing Aperture application was its product rendering engine. As a quote was modified by the user, the
 engine would be called to keep the image up to date according to the various options chosen. This was important as it 
