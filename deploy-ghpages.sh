@@ -1,9 +1,6 @@
 #!/bin/bash
-rm -rf build || exit 0;
-mkdir build;
-npm start -- -p;
-cp CNAME build/CNAME;
-( cd build
+(
+ cd build
  git init
  git config user.name "Travis-CI"
  git config user.email "travis@masterofpoppets.com"
