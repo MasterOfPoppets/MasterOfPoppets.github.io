@@ -4,7 +4,18 @@ var prod = {
 };
 var dev = {
 	baseUrl: 'http://localhost:3000/',
-	isDev: true
+	isDev: true,
+	express: {
+		livereload: true
+	},
+	watch: {
+		paths: {
+			'${source}/**/*.md': true,
+			'${source}/less/*': 'less/*',
+			'templates/**/*': '**/*'
+		},
+		livereload: true
+	}
 };
 
 module.exports = function (args) {

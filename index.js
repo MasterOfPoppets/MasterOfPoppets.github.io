@@ -13,19 +13,6 @@ var express = require('metalsmith-express');
 var watch = require('metalsmith-watch');
 var siteConfig = require('./config/site')(process.argv);
 
-var expressConfig = {
-	livereload: siteConfig.isDev
-};
-
-var watchConfig = {
-	paths: {
-		'${source}/**/*.md': true,
-		'${source}/less/*': 'less/*',
-		'templates/**/*': '**/*'
-	},
-	livereload: siteConfig.isDev
-};
-
 Handlebars.registerHelper('link', function (path) {
 	return siteConfig.baseUrl + path;
 });
@@ -40,8 +27,8 @@ metalsmith(__dirname)
 	.use(less(require('./config/less')))
 	.use(layouts(require('./config/layouts')))
 	.use(ignore(require('./config/ignore')))
-	.use(msIf(siteConfig.isDev, express(expressConfig)))
-	.use(msIf(siteConfig.isDev, watch(watchConfig)))
+	.use(msIf(siteConfig.isDev, express(siteConfig.express)))
+	.use(msIf(siteConfig.isDev, watch(siteConfig.watch)))
 	.destination('./build')
 	.build(function (err) {
 		if (err) {
