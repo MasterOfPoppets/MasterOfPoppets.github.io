@@ -19,16 +19,8 @@ Handlebars.registerHelper('link', function (path) {
 
 metalsmith(__dirname)
 	.source('./src')
-	.use(drafts())
-	.use(collections(require('./config/collections')))
-	.use(markdown())
-	.use(excerpts())
-	.use(permalinks(':collection/:title'))
 	.use(less(require('./config/less')))
-	.use(layouts(require('./config/layouts')))
-	.use(ignore(['**/*.less']))
-	.use(msIf(siteConfig.isDev, express(siteConfig.express)))
-	.use(msIf(siteConfig.isDev, watch(siteConfig.watch)))
+	.use(ignore(['**/*.less', '**/*.jsx']))
 	.destination('./build')
 	.build(function (err) {
 		if (err) {

@@ -4,7 +4,10 @@
   "description": "Quantum site hosted on Github Pages",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "production": "node index && webpack -p",
+    "compile": "webpack",
+    "server": "webpack-dev-server --content-base build",
+    "start": "npm run compile && npm run server"
   },
   "repository": {
     "type": "git",
@@ -20,7 +23,12 @@
   },
   "homepage": "https://github.com/MasterOfPoppets/MasterOfPoppets.github.io",
   "devDependencies": {
+    "babel-core": "^6.4.0",
+    "babel-loader": "^6.2.1",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
     "handlebars": "^4.0.4",
+    "history": "^1.17.0",
     "metalsmith": "^2.1.0",
     "metalsmith-collections": "^0.7.0",
     "metalsmith-drafts": "0.0.1",
@@ -32,6 +40,13 @@
     "metalsmith-less": "^2.0.0",
     "metalsmith-markdown": "^0.2.1",
     "metalsmith-permalinks": "^0.4.0",
-    "metalsmith-watch": "^1.0.1"
+    "metalsmith-watch": "^1.0.1",
+    "ramda": "^0.19.1",
+    "react": "^0.14.6",
+    "react-dom": "^0.14.6",
+    "react-router": "^1.0.3",
+    "static-site-generator-webpack-plugin": "^2.0.1",
+    "webpack": "^1.12.10",
+    "webpack-dev-server": "^1.14.0"
   }
 }

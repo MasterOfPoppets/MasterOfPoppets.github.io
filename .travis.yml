@@ -1,14 +1,7 @@
 language: node_js
-
-node_js:
-  - '5.2'
-
-script:
-  - npm start -- -p
-
-after_success:
-  - bash ./deploy-ghpages.sh
-
+node_js: '5.2'
+script: npm run production
+after_success: bash ./deploy-ghpages.sh
 env:
   global:
     - GH_REF=github.com/MasterOfPoppets/garethhughes.io
