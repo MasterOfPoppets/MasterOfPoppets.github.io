@@ -46,7 +46,7 @@ const content = () => (
 		<pre>
 			<code>
 				var model = &#123;
-					post = null
+					post: null
 				&#125;
 			</code>
 		</pre>

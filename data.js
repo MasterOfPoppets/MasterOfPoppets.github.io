@@ -60,6 +60,16 @@ var posts = [
 		url: 'famo-us-and-thames-valley-web-developers',
 		title: 'Famo.us and Thames Valley Web Developers',
 		date: '19-12-2014'
+	},
+	{
+		url: 'reloading-controllers-with-ui-router',
+		title: 'Reloading Controllers with UI Router',
+		date: '12-01-2015'
+	},
+	{
+		url: 'markdown-blogging-with-node-js-and-firebase',
+		title: 'Markdown Blogging with Node.JS and Firebase',
+		date: '03-12-2014'
 	}
 ];
 
