@@ -1,29 +1,29 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 
-var EmbeddedGist = React.createClass({
+const EmbeddedGist = React.createClass({
 	propTypes: {
-		gist: React.PropTypes.string.isRequired, // e.g. "username/id"
-		file: React.PropTypes.string // to embed a single specific file from the gist
+		gist: PropTypes.string.isRequired,
+		file: PropTypes.string
 	},
 
 	statics: {
 		// Each time we request a Gist, we'll need to generate a new
 		// global function name to serve as the JSONP callback.
 		gistCallbackId: 0,
-		nextGistCallback: function() {
-			return "embed_gist_callback_" + EmbeddedGist.gistCallbackId++;
+		nextGistCallback: function () {
+			return 'embed_gist_callback_' + EmbeddedGist.gistCallbackId++;
 		},
 
 		// The Gist JSON data includes a stylesheet to add to the page
 		// to make it look correct. `addStylesheet` ensures we only add
 		// the stylesheet one time.
 		stylesheetAdded: false,
-		addStylesheet: function(href) {
+		addStylesheet: function (href) {
 			if (!EmbeddedGist.stylesheetAdded) {
 				EmbeddedGist.stylesheetAdded = true;
 				var link = document.createElement('link');
-				link.type = "text/css";
-				link.rel = "stylesheet";
+				link.type = 'text/css';
+				link.rel = 'stylesheet';
 				link.href = href;
 
 				document.head.appendChild(link);
@@ -31,18 +31,18 @@ var EmbeddedGist = React.createClass({
 		}
 	},
 
-	getInitialState: function() {
+	getInitialState: function () {
 		return {
 			loading: true,
-			src: ""
+			src: ''
 		};
 	},
 
-	componentDidMount: function() {
+	componentDidMount: function () {
 		// Create a JSONP callback that will set our state
 		// with the data that comes back from the Gist site
 		var gistCallback = EmbeddedGist.nextGistCallback();
-		window[gistCallback] = function(gist) {
+		window[gistCallback] = function (gist) {
 			if (this.isMounted()) {
 				this.setState({
 					loading: false,
@@ -52,9 +52,9 @@ var EmbeddedGist = React.createClass({
 			}
 		}.bind(this);
 
-		var url = "https://gist.github.com/" + this.props.gist + ".json?callback=" + gistCallback;
+		var url = 'https://gist.github.com/' + this.props.gist + '.json?callback=' + gistCallback;
 		if (this.props.file) {
-			url += "&file=" + this.props.file;
+			url += '&file=' + this.props.file;
 		}
 
 		// Add the JSONP script tag to the document.

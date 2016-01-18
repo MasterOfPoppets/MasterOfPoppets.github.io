@@ -12,7 +12,7 @@ const Portfolio = () => (
 							<img src={item.logo.image} alt="Portfolio logo" className="img-responsive center-block"/>
 						</div>
 					</Link>
-					<div className="is-centre">React, Node, Full-Stack</div>
+					<div className="is-centre">{item.tags.join(', ')}</div>
 				</li>
 			))}
 		</ul>

@@ -6,6 +6,19 @@ var getPostUrl = R.compose(R.concat('/blog/'), R.prop('url'));
 
 var portfolio = [
 	{
+		url: 'netrunnerql',
+		title: 'NetrunnerQL',
+		logo: {
+			image: 'http://graphql.org/img/logo.svg',
+			background: 'black',
+			colour: 'hsl(0, 0%, 93%)'
+		},
+		tags: [
+			'React',
+			'GraphQL'
+		]
+	},
+	{
 		url: 'the-performance-window-group',
 		title: 'The Performance Window Group',
 		logo: {
@@ -36,6 +49,11 @@ var portfolio = [
 ];
 
 var posts = [
+	{
+		url: 'setting-up-a-basic-graphiql-server',
+		title: 'Setting up a basic GraphiQL server',
+		date: '18-01-2016'
+	},
 	{
 		url: 'running-on-graphql',
 		title: 'Running on GraphQL',
