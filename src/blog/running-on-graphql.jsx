@@ -37,8 +37,8 @@ const content = () => (
 		</p>
 		<h3>GraphQL in practice</h3>
 		<p>
-			Hopefully this little introduction to GraphQL has whet the appetite - I am certainly **very** excited by this new,
-			cutting edge technology.
+			Hopefully this little introduction to GraphQL has whet the appetite - I am certainly <b>very</b> excited by this
+			new, cutting edge technology.
 		</p>
 		<p>
 			Over the next few weeks I am aiming to write a series of posts detailing my adventures with GraphQL, starting with
